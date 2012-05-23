@@ -2,7 +2,7 @@
 
 The **Should Assertion Library** provides a set of extension methods for test assertions for AAA and BDD style tests.  It provides assertions only, and as a result it is Test runner agnostic.  The assertions are a direct fork of the [xUnit](http://xunit.codeplex.com) test assertions.  This project was born because test runners *Should* be independent of the the assertions!
 
-**Install should from nuget**
+**Install Should from nuget**
 
     PM> install-package should
 
@@ -46,7 +46,7 @@ The following example shows some of the assertions that are available for object
 
 Should also provides a fluent API.  Here are the same assertions as above using the fluent API.  Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).
 
-**Install should from nuget**
+**Install ShouldFluent from nuget**
 
     PhM> install-package ShouldFluent
 
