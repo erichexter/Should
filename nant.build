@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Should" xmlns="http://nant.sf.net/schemas/nant.xsd">
+	<!-- Version -->
+	<property name="svnargs" value=" --non-interactive " />
+	<property name="svn.executable" value="svn.exe" dynamic="true" if="${not property::exists('svn.executable')}" />
+	<property name="version.full" value="1.0.0.0" dynamic="true"/>
+	<property name="version.full" value="${build.number}" if="${property::exists('build.number')}"/>	
+	<property name="project.config" value="Release"/>
+	<property name="company.name" value="Should Assertion Library" />
+	<!-- Folders -->
+	<property name="dir.root" value="${path::get-full-path('.')}"/>
+	<property name="dir.solution" value="${dir.root}\src"/>
+	<property name="dir.tests" value="${dir.solution}" dynamic="true"/>
+	<property name="dir.output" value="${dir.root}\output" dynamic="true"/>
+	<property name="dir.tools" value="tools" dynamic="true"/>
+	<property name="dir.publish" value="${dir.output}\publish"/>
+	<property name="dir.test.results" value="${dir.output}\test-results"/>
+	<!-- Compilation -->
+	<property name="nant.settings.currentframework" value="net-3.5" />
+	<property name="framework" value="${framework::get-framework-directory(framework::get-target-framework())}" />
+	<property name="msbuild" value="${framework}\msbuild.exe" />
+	<property name="file.solution" value="${dir.solution}\${project::get-name()}.sln"/>
+	
+	<patternset id="test-files">
+        <include name="**\*"/>
+        <exclude name="**\*.cs"/>
+        <exclude name="**\*.csproj"/>
+	</patternset>
+
+	<target name="build" depends="commonassemblyinfo, compile, copy-for-test, test, publish"/>
+	
+	<target name="commonassemblyinfo">
+		<echo message="MARKING THIS BUILD AS VERSION ${version.full}" />
+		<delete file="${dir.solution}/CommonAssemblyInfo.cs" failonerror="false"/>
+		<asminfo output="${dir.solution}/CommonAssemblyInfo.cs" language="CSharp">
+			<imports>
+				<import namespace="System" />
+				<import namespace="System.Reflection" />
+				<import namespace="System.Runtime.InteropServices" />
+			</imports>
+			<attributes>
+				<attribute type="ComVisibleAttribute" value="false" />
+				<attribute type="AssemblyVersionAttribute" value="${version.full}" />
+				<attribute type="AssemblyFileVersionAttribute" value="${version.full}" />
+				<attribute type="AssemblyCopyrightAttribute" value="Copyright © ${company.name} 2007-${datetime::get-year(datetime::now())}" />
+				<attribute type="AssemblyProductAttribute" value="${project::get-name()}" />
+				<attribute type="AssemblyCompanyAttribute" value="${company.name}" />
+				<attribute type="AssemblyConfigurationAttribute" value="${project.config}" />
+				<attribute type="AssemblyInformationalVersionAttribute" value="${version.full}" />
+			</attributes>
+			<references>
+				<include name="System.dll" />
+			</references>
+		</asminfo>
+	</target>
+	
+    <target name="compile" depends="commonassemblyinfo">		
+		<echo>Framework: ${framework}</echo>
+		<echo>Compiling ${file.solution}</echo>
+		<exec program="${msbuild}"
+			  commandline="${file.solution} /t:Clean /p:Configuration=${project.config} /v:q" workingdir="." />
+		<exec program="${msbuild}"
+			  commandline="${file.solution} /t:Rebuild /p:Configuration=${project.config} /v:q" workingdir="." />
+    </target>
+
+	<target name="prepare-for-output" depends="compile">
+		<echo message="Deleting ${dir.output}..."/>
+		<delete dir="${dir.output}" if="${directory::exists('${dir.output}')}" />
+		<mkdir dir="${dir.output}"/>
+	</target>
+	
+	<target name="copy-for-test" depends="prepare-for-output">	
+		<copy todir="${dir.output}\Should.Facts">
+			<fileset basedir="${dir.tests}\Should.Facts">
+				<patternset refid="test-files" />
+			</fileset>
+        </copy>		
+		<copy todir="${dir.output}\Should.Fluent.UnitTests">
+			<fileset basedir="${dir.tests}\Should.Fluent.UnitTests">
+				<patternset refid="test-files" />
+			</fileset>
+        </copy>
+	</target>
+	
+    <target name="test" depends="copy-for-test">	
+		<delete dir="${dir.test.results}" if="${directory::exists('${dir.test.results}')}" />
+		<mkdir dir="${dir.test.results}"/>
+
+		<property name="should-facts-name" value="Should.Facts"/>
+		<echo message="Running Should unit tests" />
+        <exec program="xunit.console.exe" 
+              basedir="${dir.root}\lib\xunit.net" 
+              workingdir="${dir.root}"
+              commandline="&quot;${dir.output}\${should-facts-name}\bin\${project.config}\${should-facts-name}.dll&quot; /html &quot;${dir.test.results}\${should-facts-name}.Results.html&quot;"
+              resultproperty="exit-code">
+        </exec>
+		
+		<property name="should-fluent-unittests-name" value="Should.Fluent.UnitTests"/>
+		<echo message="Running Should.Fluent unit tests" />
+        <exec program="Machine.Specifications.ConsoleRunner.exe" 
+              basedir="${dir.tools}\MSpec" 
+              workingdir="${dir.root}"
+              commandline="--teamcity --html &quot;${dir.test.results}\${should-fluent-unittests-name}.Results.html&quot; &quot;${dir.output}\${should-fluent-unittests-name}\bin\${project.config}\${should-fluent-unittests-name}.dll&quot;"
+              resultproperty="exit-code">
+        </exec>
+		
+        <fail if="${exit-code != '0'}">One or more tests failed!</fail>
+	</target>
+	
+	<target name="publish" depends="test">
+		<delete dir="${dir.publish}" if="${directory::exists('${dir.publish}')}" />
+		<mkdir dir="${dir.publish}"/>
+		
+		<property name="current.ilmerge.name" value="Should"/>
+		<call target="ilmerge"/>
+		<property name="current.ilmerge.name" value="Should.Fluent"/>
+		<call target="ilmerge"/>
+		
+<!--		**Currently not working on CI server**
+		<property name="current.nuspec.name" value="Should"/>
+		<call target="create-package"/>
+		
+		<property name="current.nuspec.name" value="ShouldFluent"/>
+		<call target="create-package"/>
+-->
+	</target>
+	
+	<target name="create-package">
+		<property name="file.nuspec" value="${dir.root}\${current.nuspec.name}.nuspec"/>
+		
+		<xmlpoke file="${file.nuspec}"
+				 xpath="/package/metadata/version"
+				 value="${version.full}" />
+	
+		<exec program="NuPack.exe" 
+              basedir="${dir.tools}" 
+              workingdir="${dir.publish}"
+              commandline="&quot;${file.nuspec}&quot;"
+              resultproperty="exit-code"/>	
+	</target>
+
+	<target name="ilmerge">	
+		<echo message="ILMerging ${current.ilmerge.name}" />
+		<exec program="ILMerge.exe" 
+              basedir="${dir.tools}\ILMerge" 
+              workingdir="${dir.root}"
+              commandline="/wildcards /attr:&quot;${dir.solution}\${current.ilmerge.name}\bin\${project.config}\${current.ilmerge.name}.dll&quot; /out:&quot;${dir.publish}\${current.ilmerge.name}.dll&quot; &quot;${dir.solution}\${current.ilmerge.name}\bin\${project.config}\*.dll&quot;"
+              resultproperty="exit-code">
+        </exec>	
+	</target>
+	
+</project>

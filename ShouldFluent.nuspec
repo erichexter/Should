@@ -1,0 +1,13 @@
+<package>
+  <metadata>
+    <id>ShouldFluent</id>
+    <version>1.0.0.0</version>
+    <authors>
+      <author>Eric Hexter</author>
+      <author>Tim Scott</author>
+    </authors>
+    <description>The Should Assertion Library provides a set of extension methods for test assertions for AAA and BDD style tests. It provides assertions only, and as a result it is test runner agnostic.  The assertions are a direct fork of the xUnit test assertions.  This project was born because test runners Should be independent of the assertions!</description>
+    <language>en-US</language>
+  </metadata>
+  <files src="Should.Fluent.dll" />
+</package>

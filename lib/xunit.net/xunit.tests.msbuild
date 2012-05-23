@@ -1,0 +1,21 @@
+<Project DefaultTargets="Test" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+
+  <UsingTask
+    AssemblyFile="xunit.runner.msbuild\bin\$(BuildType)\xunit.runner.msbuild.dll"
+    TaskName="Xunit.Runner.MSBuild.xunitproject"/>
+  <UsingTask
+    AssemblyFile="xunit.runner.msbuild\bin\$(BuildType)\xunit.runner.msbuild.dll"
+    TaskName="Xunit.Runner.MSBuild.CombineXunitXml"/>
+
+  <Target Name="Test">
+    <xunitproject ProjectFile="xUnit.$(BuildType).xunit" />
+
+    <CreateItem Include="test.*.xml">
+      <Output TaskParameter="Include" ItemName="TestXmlFiles"/>
+    </CreateItem>
+
+    <CombineXunitXml InputFiles="@(TestXmlFiles)" OutputFile="TestResults.xml" />
+    <Delete Files="@(TestXmlFiles)" />
+  </Target>
+
+</Project>
