@@ -6,7 +6,7 @@ The **Should Assertion Library** provides a set of extension methods for test as
 
     PM> install-package should
 
-The following example shows some of the the assertions that are available for objects, booleans, string, and collections.
+The following example shows some of the assertions that are available for objects, booleans, string, and collections.
 
     public void Should_assertions()
     {
@@ -49,6 +49,8 @@ Should also provides a fluent API.  Here are the same assertions as above using 
 **Install should from nuget**
 
     PhM> install-package ShouldFluent
+
+The following shows the same assertions as above but in the fluent style.
 
     public void Should_fluent_assertions()
     {
