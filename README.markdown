@@ -48,7 +48,7 @@ Should also provides a fluent API.  Here are the same assertions as above using 
 
 **Install should from nuget**
 
-   PhM> install-package ShouldFluent
+    PhM> install-package ShouldFluent
 
     public void Should_fluent_assertions()
     {
