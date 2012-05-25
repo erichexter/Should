@@ -9,7 +9,7 @@ The **Should Assertion Library** provides a set of extension methods for test as
 
 ###Standard
 
-Instal from nuget.
+Install from nuget.
 
     PM> install-package should
 
@@ -52,7 +52,7 @@ The following example shows some of the assertions that are available for object
 
 ###Fluent
 
-Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).  This example shows the same assertions as above except using the fluent API.
+Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).
 
 Install from nuget.
 
