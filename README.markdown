@@ -52,9 +52,7 @@ The following example shows some of the assertions that are available for object
 
 ###Fluent
 
-Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).
-
-Install from nuget.
+Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).  Install from nuget.
 
     PM> install-package ShouldFluent
 
