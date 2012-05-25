@@ -2,7 +2,14 @@
 
 The **Should Assertion Library** provides a set of extension methods for test assertions for AAA and BDD style tests.  It provides assertions only, and as a result it is Test runner agnostic.  The assertions are a direct fork of the [xUnit](http://xunit.codeplex.com) test assertions.  This project was born because test runners *Should* be independent of the the assertions!
 
-**Install Should from nuget**
+**Should Assertion Library** comes in two flavors, each with it's own binary.
+
+ * Standard (Should.dll)
+ * Fluent (Should.Fluent.dll)
+
+###Standard
+
+Instal from nuget.
 
     PM> install-package should
 
@@ -43,12 +50,13 @@ The following example shows some of the assertions that are available for object
         list.ShouldContain(item);
     }
 
+###Fluent
 
-Should also provides a fluent API.  Here are the same assertions as above using the fluent API.  Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).
+Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).  This example shows the same assertions as above except using the fluent API.
 
-**Install ShouldFluent from nuget**
+Install from nuget.
 
-    PhM> install-package ShouldFluent
+    PM> install-package ShouldFluent
 
 The following shows the same assertions as above but in the fluent style.
 
