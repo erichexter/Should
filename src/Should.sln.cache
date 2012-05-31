@@ -67,11 +67,11 @@
     <AspNetConfiguration>$(Configuration)</AspNetConfiguration>
   </PropertyGroup>
   <PropertyGroup>
-    <SolutionDir>C:\code\shouldpull-3\src\</SolutionDir>
+    <SolutionDir>C:\Sandbox\oss\Should\src\</SolutionDir>
     <SolutionExt>.sln</SolutionExt>
     <SolutionFileName>Should.sln</SolutionFileName>
     <SolutionName>Should</SolutionName>
-    <SolutionPath>C:\code\shouldpull-3\src\Should.sln</SolutionPath>
+    <SolutionPath>C:\Sandbox\oss\Should\src\Should.sln</SolutionPath>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and '$(MSBuildToolsVersion)' == '2.0'">v2.0</TargetFrameworkVersion>

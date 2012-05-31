@@ -92,14 +92,14 @@ namespace Should.Fluent.UnitTests
     {
         Because of = () => result = target.Should().Be.True();
         It should_call_areequal =()=> Called(x => x.IsTrue(target.Value));
-        Behaves_like<result_should_be_target<bool>> yes;
+        Behaves_like<result_should_be_target<bool?>> yes;
     }
 
     public class when_calling_nullable_bool_should_not_be_null : behaves_like_nullable_bool_true
     {
         Because of = () => result = target.Should().Not.Be.Null();
         It should_call_areequal = () => Called(x => x.IsNotNull(target));
-        Behaves_like<result_should_be_target<bool>> yes;
+        Behaves_like<result_should_be_target<bool?>> yes;
     }
 
     public class when_calling_guid_should_be_empty : mocked_assert_provider_context<Guid>

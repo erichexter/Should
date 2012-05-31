@@ -97,8 +97,8 @@
 		
 		<property name="should-fluent-unittests-name" value="Should.Fluent.UnitTests"/>
 		<echo message="Running Should.Fluent unit tests" />
-        <exec program="Machine.Specifications.ConsoleRunner.exe" 
-              basedir="${dir.tools}\MSpec" 
+        <exec program="mspec-x86.exe" 
+              basedir="lib\Machine.Specifications.0.5.6.0\tools" 
               workingdir="${dir.root}"
               commandline="--teamcity --html &quot;${dir.test.results}\${should-fluent-unittests-name}.Results.html&quot; &quot;${dir.output}\${should-fluent-unittests-name}\bin\${project.config}\${should-fluent-unittests-name}.dll&quot;"
               resultproperty="exit-code">
