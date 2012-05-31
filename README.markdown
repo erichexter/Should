@@ -7,6 +7,8 @@ The **Should Assertion Library** provides a set of extension methods for test as
  * Standard (Should.dll)
  * Fluent (Should.Fluent.dll)
 
+  Use our prerelease nuget feed: http://www.myget.org/F/should/
+
 ###Standard
 
 Install from nuget.
