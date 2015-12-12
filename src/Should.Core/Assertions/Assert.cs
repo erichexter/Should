@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Should.Core.Exceptions;
+using System.Reflection;
 
 namespace Should.Core.Assertions
 {
@@ -484,7 +485,11 @@ namespace Should.Core.Assertions
         /// <exception cref="IsAssignableFromException">Thrown when the object is not the given type</exception>
         public static void IsAssignableFrom(Type expectedType, object @object)
         {
+#if NETFX_CORE
+            if (@object == null || !expectedType.GetTypeInfo().IsAssignableFrom(@object.GetType().GetTypeInfo()))
+#else
             if (@object == null || !expectedType.IsAssignableFrom(@object.GetType()))
+#endif
                 throw new IsAssignableFromException(expectedType, @object);
         }
 

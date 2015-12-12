@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Should.Core.Assertions
 {
@@ -8,7 +9,11 @@ namespace Should.Core.Assertions
     {
         public bool Equals(T x, T y)
         {
-            Type type = typeof(T);
+#if NETFX_CORE
+            var type = typeof(T).GetTypeInfo();
+#else
+            var type = typeof(T);
+#endif
 
             // Null?
             if (!type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition().IsAssignableFrom(typeof(Nullable<>))))
