@@ -88,10 +88,6 @@
     <Compile Include="Behaviors.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Should.Core\Should.Core.csproj">
-      <Project>{984764C1-D102-43AD-8DE9-0AA3B7E5D431}</Project>
-      <Name>Should.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Should.Fluent\Should.Fluent.csproj">
       <Project>{20743DBF-AEF5-464B-9C9B-8109AD43AA5A}</Project>
       <Name>Should.Fluent</Name>

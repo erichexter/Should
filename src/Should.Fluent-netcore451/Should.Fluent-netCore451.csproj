@@ -107,46 +107,13 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BeBoolExtensions.cs" />
-    <Compile Include="BeCollectionExtensions.cs" />
-    <Compile Include="BeDateTimeExtensions.cs" />
-    <Compile Include="BeDoubleExtensions.cs" />
-    <Compile Include="BeEnumerableExtensions.cs" />
-    <Compile Include="BeGuidExtensions.cs" />
-    <Compile Include="BeNullableBoolExtensions.cs" />
-    <Compile Include="BeNullableDateTimeExtensions.cs" />
-    <Compile Include="BeStringExtensions.cs" />
-    <Compile Include="IAssertProvider.cs" />
-    <Compile Include="Model\Be.cs" />
-    <Compile Include="Model\BeBase.cs" />
-    <Compile Include="Model\BeMethodCallExpression.cs" />
-    <Compile Include="Model\Check.cs" />
-    <Compile Include="Model\Contain.cs" />
-    <Compile Include="Model\ContainQueryable.cs" />
-    <Compile Include="Model\Count.cs" />
-    <Compile Include="Model\IBe.cs" />
-    <Compile Include="Model\IShould.cs" />
-    <Compile Include="Model\Should.cs" />
-    <Compile Include="Model\ShouldBase.cs" />
-    <Compile Include="Model\ShouldCollection.cs" />
-    <Compile Include="Model\ShouldDictionary.cs" />
-    <Compile Include="Model\ShouldEnumerable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShouldCoreAssertProvider.cs" />
-    <Compile Include="ShouldDateTimeExtensions.cs" />
-    <Compile Include="ShouldDoubleExtensions.cs" />
-    <Compile Include="ShouldExtensions.cs" />
-    <Compile Include="ShouldStringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Should.Fluent_netCore451.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Should.Core\Should.Core-netCore451.csproj">
-      <Project>{ee999bef-0c37-4733-81a7-5739ebfefce3}</Project>
-      <Name>Should.Core-netCore451</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <Import Project="..\Should.Fluent\Should.Fluent.Shared.projitems" Label="Shared" />
+  <Import Project="..\Should.Core\Should.Core.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

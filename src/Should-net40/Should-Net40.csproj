@@ -41,20 +41,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ActionAssertionExtensions.cs" />
-    <Compile Include="BooleanAssertionExtensions.cs" />
-    <Compile Include="CollectionAssertionExtensions.cs" />
-    <Compile Include="DateAssertionExtensions.cs" />
-    <Compile Include="DoubleAssertionExtensions.cs" />
-    <Compile Include="ObjectAssertExtensions.cs" />
-    <Compile Include="StringAssertionExtensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Should.Core\Should.Core-Net40.csproj">
-      <Project>{ea66c8b4-a36e-421a-a03e-8a09fe6358cc}</Project>
-      <Name>Should.Core-Net40</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <Import Project="..\should\Should.Shared.projitems" Label="Shared" />
+  <Import Project="..\Should.Core\Should.Core.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -101,10 +101,6 @@
     <Compile Include="Core\TrueTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Should.Core\Should.Core.csproj">
-      <Project>{984764C1-D102-43AD-8DE9-0AA3B7E5D431}</Project>
-      <Name>Should.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\should\Should.csproj">
       <Project>{5606A23D-EBDA-4563-B303-F19CEFE9EC32}</Project>
       <Name>Should</Name>

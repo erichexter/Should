@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fc238bce-9f69-4c4b-8d86-35816bac10cb</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Should.Fluent.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BeBoolExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeCollectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeDateTimeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeDoubleExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeEnumerableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeGuidExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeNullableBoolExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeNullableDateTimeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeStringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAssertProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Be.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\BeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\BeMethodCallExpression.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Check.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Contain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ContainQueryable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Count.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\IBe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\IShould.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Should.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ShouldBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ShouldCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ShouldDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ShouldEnumerable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShouldCoreAssertProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShouldDateTimeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShouldDoubleExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShouldExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShouldStringExtensions.cs" />
+  </ItemGroup>
+</Project>

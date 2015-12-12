@@ -33,7 +33,7 @@ namespace Should.Fluent
             {
                 try
                 {
-                    var converter = TypeDescriptor.GetConverter(typeof(T).GetTypeInfo());
+                    var converter = TypeDescriptor.GetConverter(typeof(T));
                     return (T)converter.ConvertFrom(t);
                 }
                 catch (Exception ex)

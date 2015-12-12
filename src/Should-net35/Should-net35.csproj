@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{20743DBF-AEF5-464B-9C9B-8109AD43AA5A}</ProjectGuid>
+    <ProjectGuid>{5606A23D-EBDA-4563-B303-F19CEFE9EC32}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Should.Fluent</RootNamespace>
-    <AssemblyName>Should.Fluent</AssemblyName>
+    <RootNamespace>Should</RootNamespace>
+    <AssemblyName>Should</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -37,7 +37,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Should.Fluent.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Should.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -57,42 +57,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="BeBoolExtensions.cs" />
-    <Compile Include="BeCollectionExtensions.cs" />
-    <Compile Include="BeDateTimeExtensions.cs" />
-    <Compile Include="BeDoubleExtensions.cs" />
-    <Compile Include="BeEnumerableExtensions.cs" />
-    <Compile Include="BeGuidExtensions.cs" />
-    <Compile Include="BeNullableBoolExtensions.cs" />
-    <Compile Include="BeNullableDateTimeExtensions.cs" />
-    <Compile Include="BeStringExtensions.cs" />
-    <Compile Include="Model\BeBase.cs" />
-    <Compile Include="Model\IBe.cs" />
-    <Compile Include="Model\IShould.cs" />
-    <Compile Include="ShouldDateTimeExtensions.cs" />
-    <Compile Include="ShouldDoubleExtensions.cs" />
-    <Compile Include="ShouldExtensions.cs" />
-    <Compile Include="IAssertProvider.cs" />
-    <Compile Include="Model\Be.cs" />
-    <Compile Include="Model\BeMethodCallExpression.cs" />
-    <Compile Include="Model\Check.cs" />
-    <Compile Include="Model\Contain.cs" />
-    <Compile Include="Model\ContainQueryable.cs" />
-    <Compile Include="Model\Count.cs" />
-    <Compile Include="Model\Should.cs" />
-    <Compile Include="Model\ShouldBase.cs" />
-    <Compile Include="Model\ShouldCollection.cs" />
-    <Compile Include="Model\ShouldDictionary.cs" />
-    <Compile Include="Model\ShouldEnumerable.cs" />
-    <Compile Include="ShouldCoreAssertProvider.cs" />
-    <Compile Include="ShouldStringExtensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Should.Core\Should.Core.csproj">
-      <Project>{984764C1-D102-43AD-8DE9-0AA3B7E5D431}</Project>
-      <Name>Should.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <Import Project="..\Should.Core\Should.Core.Shared.projitems" Label="Shared" />
+  <Import Project="..\should\Should.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

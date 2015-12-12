@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{984764C1-D102-43AD-8DE9-0AA3B7E5D431}</ProjectGuid>
+    <ProjectGuid>{20743DBF-AEF5-464B-9C9B-8109AD43AA5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Should.Core</RootNamespace>
-    <AssemblyName>Should.Core</AssemblyName>
+    <RootNamespace>Should.Fluent</RootNamespace>
+    <AssemblyName>Should.Fluent</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -25,6 +25,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +37,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Should.Fluent.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,45 +57,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Assertions\Assert.cs" />
-    <Compile Include="Assertions\AssertComparer.cs" />
-    <Compile Include="Assertions\AssertEqualityComparer.cs" />
-    <Compile Include="Assertions\Assertions.cs" />
-    <Compile Include="Assertions\EnumerableEqualityComparer.cs" />
-    <Compile Include="Assertions\Record.cs" />
-    <Compile Include="DatePrecision.cs" />
-    <Compile Include="Exceptions\AssertActualExpectedException.cs" />
-    <Compile Include="Exceptions\AssertException.cs" />
-    <Compile Include="Exceptions\ComparisonException.cs" />
-    <Compile Include="Exceptions\ContainsException.cs" />
-    <Compile Include="Exceptions\DoesNotContainException.cs" />
-    <Compile Include="Exceptions\DoesNotThrowException.cs" />
-    <Compile Include="Exceptions\EmptyException.cs" />
-    <Compile Include="Exceptions\EqualException.cs" />
-    <Compile Include="Exceptions\FalseException.cs" />
-    <Compile Include="Exceptions\GreaterThanException.cs" />
-    <Compile Include="Exceptions\GreaterThanOrEqualException.cs" />
-    <Compile Include="Exceptions\InRangeException.cs" />
-    <Compile Include="Exceptions\IsAssignableFromException.cs" />
-    <Compile Include="Exceptions\IsNotTypeException.cs" />
-    <Compile Include="Exceptions\IsTypeException.cs" />
-    <Compile Include="Exceptions\LessThanException.cs" />
-    <Compile Include="Exceptions\LessThanOrEqualException.cs" />
-    <Compile Include="Exceptions\NotEmptyException.cs" />
-    <Compile Include="Exceptions\NotEqualException.cs" />
-    <Compile Include="Exceptions\NotInRangeException.cs" />
-    <Compile Include="Exceptions\NotNullException.cs" />
-    <Compile Include="Exceptions\NotSameException.cs" />
-    <Compile Include="Exceptions\NullException.cs" />
-    <Compile Include="Exceptions\ParameterCountMismatchException.cs" />
-    <Compile Include="Exceptions\SameException.cs" />
-    <Compile Include="Exceptions\SingleException.cs" />
-    <Compile Include="Exceptions\StartsWithException.cs" />
-    <Compile Include="Exceptions\ThrowsException.cs" />
-    <Compile Include="Exceptions\TimeoutException.cs" />
-    <Compile Include="Exceptions\TraceAssertException.cs" />
-    <Compile Include="Exceptions\TrueException.cs" />
   </ItemGroup>
+  <Import Project="..\Should.Fluent\Should.Fluent.Shared.projitems" Label="Shared" />
+  <Import Project="..\Should.Core\Should.Core.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
