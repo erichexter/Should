@@ -88,9 +88,9 @@
     <Compile Include="Behaviors.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Should.Fluent\Should.Fluent.csproj">
+    <ProjectReference Include="..\Should.Fluent-net35\Should.Fluent-net35.csproj">
       <Project>{20743DBF-AEF5-464B-9C9B-8109AD43AA5A}</Project>
-      <Name>Should.Fluent</Name>
+      <Name>Should.Fluent-net35</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
