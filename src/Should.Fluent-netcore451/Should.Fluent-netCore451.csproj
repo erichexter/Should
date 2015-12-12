@@ -107,10 +107,12 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Properties\Should.Fluent_netCore451.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\Should.Fluent_netCore451.rd.xml" />
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="..\Should.Fluent\Should.Fluent.Shared.projitems" Label="Shared" />
   <Import Project="..\Should.Core\Should.Core.Shared.projitems" Label="Shared" />
