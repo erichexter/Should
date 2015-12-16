@@ -1,0 +1,31 @@
+﻿HOW TO USE:
+(From https://visualstudiogallery.msdn.microsoft.com/daf5c6db-386b-4994-bdd7-b6cd52f11b72?SRC=VSIDE)
+
+1.Add a new project to your solution by using the installed template
+
+2.Open NuGet.config and add your repositories to the "packageSources" element.
+ The script will then publish your package to all the listed repositories.
+
+3.Edit the sample "Package.nuspec" file according to http://docs.nuget.org/docs/reference/nuspec-reference
+
+4.Add the assemblies you want to add as references in the "lib" folder before building the project
+See http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package#Package_Conventions
+
+5.Add the files you want to copy to the project folder in the "content" folder before building the project
+Remember that you can also do config and file transforms.  http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations
+
+6.Edit one or more of the files in the "tools" folder if you want to run some script on package install, uninstall or init.
+See http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package#Automatically_Running_PowerShell_Scripts_During_Package_Installation_and_Removal
+
+7.Build the project. 
+    1.If in release mode, the packager will try to push your package to the repository using the NuGet API Keys configuration.
+        If no valid API key for the specified package source exists, it will prompt you to add it before automatically trying again.
+    2.If in debug mode, it will only create the packages.
+
+
+If there are .pdb files located in the lib folder, a symbols package will automatically be made and published together with the package.
+ Please note that when publishing a symbol package, all source files need to be present in the "src" folder, with the same structure as in the actual project.
+
+Make sure all the files you want to include in the package are present in the "lib", "content" and "tools" folders before building the NuGet Packager project.
+
+To publish a new version of your package, bump the version number in the .nuspec file.
