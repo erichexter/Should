@@ -165,3 +165,10 @@ pip-log.txt
 .DS_Store
 
 output
+/src/packages
+/src/.vs/config
+/CommonAssemblyInfo.cs
+/src/Should-netcore45/project.lock.json
+/src/Should.Fluent-netcore45/project.lock.json
+/.build/MSBuildTasks.1.4.0.128
+*.nupkg

@@ -24,9 +24,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Should.Facts", "should.Facts\Should.Facts.csproj", "{9C18BFAC-56DB-43BD-A6D2-1DDB19286961}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{217D407F-7183-476B-A15C-E0324A0800E5}"
-	ProjectSection(SolutionItems) = preProject
-		Should.Fluent.Packager\HowToUse.txt = Should.Fluent.Packager\HowToUse.txt
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Should.Fluent-netCore45", "Should.Fluent-netcore45\Should.Fluent-netCore45.csproj", "{875D7C4E-0004-4512-80D4-F88DC9568381}"
 EndProject
@@ -40,7 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{C55E4617
 	ProjectSection(SolutionItems) = preProject
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		..\ms.build = ..\ms.build
-		..\nant.build = ..\nant.build
 	EndProjectSection
 EndProject
 Global

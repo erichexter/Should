@@ -73,9 +73,9 @@
       <Link>lib\net40\Should.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Should-netcore451\bin\Release\Should.dll">
+    <Content Include="..\Should-netcore45\bin\Release\Should.dll">
       <Link>lib\netcore45\Should.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -85,7 +85,7 @@
   </Target>-->
   <Target Name="AfterBuild">
     <Delete Files=".\NuGet.log" />
-    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1} &quot;" IgnoreExitCode="true">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1 -Version $(Version)} &quot;" IgnoreExitCode="true">
       <Output TaskParameter="ExitCode" PropertyName="ExitCode" />
     </Exec>
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1 -Publish} &quot;" IgnoreExitCode="true">

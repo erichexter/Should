@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+  <PropertyGroup>
+    <Version>$(BuildNumber)</Version>
+    <CompanyName>Should Assertion Library</CompanyName>
+  </PropertyGroup>
+  <!-- Import the AssemblyInfo task -->
+
+  <!-- Had problems with this as its seems to double reference the path
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>.build\MSBuildTasks.1.4.0.128\tools\</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  
+  <Import Project=".build\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />-->
+
+  <Import Project=".build\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />
+ 
+  <ItemGroup>
+    <AssemblyVersionFiles Include="$(MSBuildProjectDirectory)\src\CommonAssemblyInfo.cs"/>
+  </ItemGroup>
+
+  <Target Name="AssemblyVersion"
+                  Inputs="@(AssemblyVersionFiles)"
+                  Outputs="UpdatedAssemblyVersionFiles">
+    <Attrib Files="%(AssemblyVersionFiles.FullPath)"
+                Normal="true"/>
+    <AssemblyInfo
+        CodeLanguage="CS"
+        OutputFile="%(AssemblyVersionFiles.FullPath)"
+        ComVisible="false"
+        AssemblyVersion="$(Version)"
+        AssemblyFileVersion="$(Version)"
+        AssemblyCopyright="Copyright $(CompanyName) 2007-2016."
+        AssemblyProduct="Should"
+        AssemblyCompany="$(CompanyName)"
+        AssemblyConfiguration="Release"
+        AssemblyInformationalVersion="$(Version)" >
+      <Output TaskParameter="OutputFile"
+                      ItemName="UpdatedAssemblyVersionFiles"/>
+    </AssemblyInfo>
+  </Target>
+
+  <Target Name="Compile" >
+    <MSBuild Projects="src\Should.sln" Properties="Configuration=Release;Platform=Any CPU" />
+  </Target>
+
+  <Target Name="Package" >
+    <MSBuild Projects="src\Should.Packager\Should.Packager.csproj" Properties="Version=$(Version)"/>
+  <MSBuild Projects="src\Should.Packager\Should.Fluent.Packager.csproj" Properties="Version=$(Version)"/>
+  </Target>
+
+  <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Package"/>
+</Project>
