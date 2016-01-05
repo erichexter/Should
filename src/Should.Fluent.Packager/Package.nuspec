@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Should</id>
-        <version>1.0.0.0</version>
+        <version>$version$</version>
         <authors>Eric Hexter,Tim Scott</authors>
         <licenseUrl>https://github.com/erichexter/Should/blob/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/erichexter/Should/blob/master/README.markdown</projectUrl>
