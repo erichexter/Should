@@ -12,7 +12,7 @@
     </metadata>
     <files>
         <file src="bin\lib\net35\Should.dll" target="lib\net35\Should.dll" />
-        <!--<file src="bin\lib\net40\Should.dll" target="lib\net40\Should.dll" />
-        <file src="bin\lib\netcore45\Should.dll" target="lib\netcore45\Should.dll" />-->
+        <file src="bin\lib\net40\Should.dll" target="lib\net40\Should.dll" />
+      <!--<file src="bin\lib\netcore45\Should.dll" target="lib\netcore45\Should.dll" />-->
     </files>
 </package>
