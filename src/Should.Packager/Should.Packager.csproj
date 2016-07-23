@@ -50,7 +50,7 @@
     <None Include="NuGetSetup.ps1" />
     <None Include="NuGet.exe" />
     <None Include="NuGet.config" />
-    <None Include="Package.nuspec">
+    <None Include="Should.nuspec">
       <SubType>Designer</SubType>
     </None>
     <None Include="tools\init.ps1" />
