@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\" />
+    <Folder Include="lib\net40\" />
+    <Folder Include="lib\netcore45\" />
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
@@ -69,14 +71,6 @@
   <ItemGroup>
     <Content Include="..\Should.Fluent-net35\bin\Release\Should.Fluent.dll">
       <Link>lib\net35\Should.Fluent.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Should.Fluent-net40\bin\Release\Should.Fluent.dll">
-      <Link>lib\net40\Should.Fluent.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Should.Fluent-netcore45\bin\Release\Should.Fluent.dll">
-      <Link>lib\netcore45\Should.Fluent.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
