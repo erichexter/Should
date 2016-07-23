@@ -15,7 +15,7 @@
   
   <Import Project=".build\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />-->
 
-  <Import Project=".build\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />
+  <Import Project=".build\MSBuildTasks.1.5.0.196\tools\MSBuild.Community.Tasks.Targets" />
  
   <ItemGroup>
     <AssemblyVersionFiles Include="$(MSBuildProjectDirectory)\src\CommonAssemblyInfo.cs"/>
