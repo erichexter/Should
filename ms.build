@@ -48,8 +48,8 @@
 
   <Target Name="Package" >
     <MSBuild Projects="src\Should.Packager\Should.Packager.csproj" Properties="Version=$(Version)"/>
-  <MSBuild Projects="src\Should.Fluent.Packager\Should.Fluent.Packager.csproj" Properties="Version=$(Version)"/>
+    <MSBuild Projects="src\Should.Fluent.Packager\Should.Fluent.Packager.csproj" Properties="Version=$(Version)"/>
   </Target>
 
-  <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Package"/>
+  <Target Name="build" DependsOnTargets="AssemblyVersion;Compile"/>
 </Project>
