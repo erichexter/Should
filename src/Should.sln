@@ -40,8 +40,8 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Should.Core\Should.Core.Shared.projitems*{20743dbf-aef5-464b-9c9b-8109ad43aa5a}*SharedItemsImports = 4
 		Should.Fluent\Should.Fluent.Shared.projitems*{20743dbf-aef5-464b-9c9b-8109ad43aa5a}*SharedItemsImports = 4
-		should\Should.Shared.projitems*{5606a23d-ebda-4563-b303-f19cefe9ec32}*SharedItemsImports = 4
 		Should.Core\Should.Core.Shared.projitems*{5606a23d-ebda-4563-b303-f19cefe9ec32}*SharedItemsImports = 4
+		should\Should.Shared.projitems*{5606a23d-ebda-4563-b303-f19cefe9ec32}*SharedItemsImports = 4
 		should\Should.Shared.projitems*{d44d056f-b8ab-4902-ad6d-3e38cf2d7044}*SharedItemsImports = 13
 		Should.Fluent\Should.Fluent.Shared.projitems*{fc238bce-9f69-4c4b-8d86-35816bac10cb}*SharedItemsImports = 13
 		Should.Core\Should.Core.Shared.projitems*{98a525e4-0f1c-43f4-a947-f3546c5771bf}*SharedItemsImports = 13

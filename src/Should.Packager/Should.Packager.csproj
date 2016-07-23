@@ -59,8 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\" />
-    <Folder Include="lib\net40\" />
-    <Folder Include="lib\netcore45\" />
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
