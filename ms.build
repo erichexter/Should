@@ -3,17 +3,17 @@
 
 
   <PropertyGroup>
-    <Version>$(BuildNumber)</Version>
+    <Version>$(PackageVersion)</Version>
     <CompanyName>Should Assertion Library</CompanyName>
   </PropertyGroup>
   <!-- Import the AssemblyInfo task -->
 
-  <!-- Had problems with this as its seems to double reference the path
+  <!-- Had problems with this as its seems to double reference the path-->
   <PropertyGroup>
-    <MSBuildCommunityTasksPath>.build\MSBuildTasks.1.4.0.128\tools\</MSBuildCommunityTasksPath>
+    <MSBuildCommunityTasksPath>\.build\MSBuildTasks.1.5.0.196\tools\</MSBuildCommunityTasksPath>
   </PropertyGroup>
   
-  <Import Project=".build\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />-->
+  <!--<Import Project=".build\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />-->
 
   <Import Project=".build\MSBuildTasks.1.5.0.196\tools\MSBuild.Community.Tasks.Targets" />
  

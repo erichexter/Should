@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{217D407F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{C55E4617-88D5-496D-A9F5-2336A3124745}"
 	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
 		..\build.bat = ..\build.bat
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		..\ms.build = ..\ms.build
@@ -47,21 +48,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Should-netCore45", "Should-
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Should.Core\Should.Core.Shared.projitems*{138abd63-5385-47f2-8119-889dbd3ebc4f}*SharedItemsImports = 4
 		should\Should.Shared.projitems*{138abd63-5385-47f2-8119-889dbd3ebc4f}*SharedItemsImports = 4
-		Should.Core\Should.Core.Shared.projitems*{cf85eed2-74f3-4e60-bab5-b8171bbb91de}*SharedItemsImports = 4
+		Should.Core\Should.Core.Shared.projitems*{138abd63-5385-47f2-8119-889dbd3ebc4f}*SharedItemsImports = 4
 		should\Should.Shared.projitems*{cf85eed2-74f3-4e60-bab5-b8171bbb91de}*SharedItemsImports = 4
-		Should.Fluent\Should.Fluent.Shared.projitems*{20743dbf-aef5-464b-9c9b-8109ad43aa5a}*SharedItemsImports = 4
+		Should.Core\Should.Core.Shared.projitems*{cf85eed2-74f3-4e60-bab5-b8171bbb91de}*SharedItemsImports = 4
 		Should.Core\Should.Core.Shared.projitems*{20743dbf-aef5-464b-9c9b-8109ad43aa5a}*SharedItemsImports = 4
-		Should.Core\Should.Core.Shared.projitems*{5606a23d-ebda-4563-b303-f19cefe9ec32}*SharedItemsImports = 4
+		Should.Fluent\Should.Fluent.Shared.projitems*{20743dbf-aef5-464b-9c9b-8109ad43aa5a}*SharedItemsImports = 4
 		should\Should.Shared.projitems*{5606a23d-ebda-4563-b303-f19cefe9ec32}*SharedItemsImports = 4
+		Should.Core\Should.Core.Shared.projitems*{5606a23d-ebda-4563-b303-f19cefe9ec32}*SharedItemsImports = 4
 		should\Should.Shared.projitems*{d44d056f-b8ab-4902-ad6d-3e38cf2d7044}*SharedItemsImports = 13
 		Should.Fluent\Should.Fluent.Shared.projitems*{fc238bce-9f69-4c4b-8d86-35816bac10cb}*SharedItemsImports = 13
 		Should.Core\Should.Core.Shared.projitems*{98a525e4-0f1c-43f4-a947-f3546c5771bf}*SharedItemsImports = 13
-		Should.Fluent\Should.Fluent.Shared.projitems*{38427dc8-a1fd-4444-9a40-fea1bcdba9c7}*SharedItemsImports = 4
 		Should.Core\Should.Core.Shared.projitems*{38427dc8-a1fd-4444-9a40-fea1bcdba9c7}*SharedItemsImports = 4
-		Should.Fluent\Should.Fluent.Shared.projitems*{875d7c4e-0004-4512-80d4-f88dc9568381}*SharedItemsImports = 4
+		Should.Fluent\Should.Fluent.Shared.projitems*{38427dc8-a1fd-4444-9a40-fea1bcdba9c7}*SharedItemsImports = 4
 		Should.Core\Should.Core.Shared.projitems*{875d7c4e-0004-4512-80d4-f88dc9568381}*SharedItemsImports = 4
+		Should.Fluent\Should.Fluent.Shared.projitems*{875d7c4e-0004-4512-80d4-f88dc9568381}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -170,7 +170,7 @@ output
 /CommonAssemblyInfo.cs
 /src/Should-netcore45/project.lock.json
 /src/Should.Fluent-netcore45/project.lock.json
-/.build/MSBuildTasks.1.4.0.128
+/.build
 *.nupkg
 /src/CommonAssemblyInfo.cs
 /src/Should.Fluent.Packager/NuGet.log
