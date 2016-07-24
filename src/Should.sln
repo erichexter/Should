@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{217D407F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{C55E4617-88D5-496D-A9F5-2336A3124745}"
 	ProjectSection(SolutionItems) = preProject
+		..\build.bat = ..\build.bat
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		..\ms.build = ..\ms.build
 	EndProjectSection
