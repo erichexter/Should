@@ -88,7 +88,8 @@
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1 -Version $(Version)} &quot;" IgnoreExitCode="true">
       <Output TaskParameter="ExitCode" PropertyName="ExitCode" />
     </Exec>
-    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1 -Publish} &quot;" IgnoreExitCode="true">
+      <!--<Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1 -Publish} &quot;" IgnoreExitCode="true">-->
+      <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " ContinueOnError="True" Command="PowerShell.exe -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command &quot;&amp; {.\NuGetPackage.ps1  -Version $(Version)} &quot;" IgnoreExitCode="true">
       <Output TaskParameter="ExitCode" PropertyName="ExitCode" />
     </Exec>
     <Message Text=" " Importance="High" />
