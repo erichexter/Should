@@ -50,9 +50,7 @@
     <None Include="NuGetSetup.ps1" />
     <None Include="NuGet.exe" />
     <None Include="NuGet.config" />
-    <None Include="Should.Fluent.nuspec">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />
     <None Include="tools\install.ps1" />
     <None Include="tools\uninstall.ps1" />
@@ -73,6 +71,11 @@
     </Content>
     <Content Include="..\Should.Fluent-net40\bin\Release\Should.Fluent.dll">
       <Link>lib\net40\Should.Fluent.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Should.Fluent-netcore45\bin\Release\Should.Fluent.dll">
+      <Link>lib\netcore45\Should.Fluent.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

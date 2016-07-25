@@ -48,9 +48,7 @@
 
   <Target Name="Package" >
     <MSBuild Projects="src\Should.Packager\Should.Packager.csproj" Properties="Version=$(Version)"/>
-    <exec Task="type src\Should.Packager\NuGet.log"/>
     <MSBuild Projects="src\Should.Fluent.Packager\Should.Fluent.Packager.csproj" Properties="Version=$(Version)"/>
-    <exec Task="type src\Should.Fluent.Packager\NuGet.log"/>
   </Target>
 
   <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Package"/>
