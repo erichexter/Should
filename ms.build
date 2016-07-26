@@ -2,7 +2,8 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <Version>$(PackageVersion)</Version>
+    <Version Condition="'$(PackageVersion)'!=''">$(PackageVersion)</Version>
+    <Version Condition="'$(Version)'==''">0.0.0.1</Version>
     <CompanyName>Should Assertion Library</CompanyName>
   </PropertyGroup>
 
@@ -50,10 +51,9 @@
   </Target>
 
   <Target Name="Pack">
-    <exec Command="tools\nuget.exe pack Should.nuspec"/>
-    <exec Command="tools\nuget.exe pack ShouldFluent.nuspec"/>
+    <exec Command="tools\nuget.exe pack Should.nuspec -Version $(Version)"/>
+    <exec Command="tools\nuget.exe pack ShouldFluent.nuspec -Version $(Version)"/>
   </Target>
-
 
   <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Test;Pack"/>
 </Project>
