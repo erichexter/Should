@@ -49,5 +49,11 @@
     <xunit Assemblies="src\Should.Facts\bin\Release\Should.Facts.dll" />
   </Target>
 
-  <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Test"/>
+  <Target Name="Pack">
+    <exec Command="tools\nuget.exe pack Should.nuspec"/>
+    <exec Command="tools\nuget.exe pack ShouldFluent.nuspec"/>
+  </Target>
+
+
+  <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Test;Pack"/>
 </Project>

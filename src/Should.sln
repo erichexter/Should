@@ -20,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Should.Facts", "should.Facts\Should.Facts.csproj", "{9C18BFAC-56DB-43BD-A6D2-1DDB19286961}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{217D407F-7183-476B-A15C-E0324A0800E5}"
+	ProjectSection(SolutionItems) = preProject
+		..\Should.nuspec = ..\Should.nuspec
+		..\ShouldFluent.nuspec = ..\ShouldFluent.nuspec
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{C55E4617-88D5-496D-A9F5-2336A3124745}"
 	ProjectSection(SolutionItems) = preProject
