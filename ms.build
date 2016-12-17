@@ -12,9 +12,9 @@
     TaskName="Xunit.Runner.MSBuild.xunit"/>
 
   <PropertyGroup>
-    <MSBuildCommunityTasksPath>\.build\MSBuildTasks.1.5.0.196\tools\</MSBuildCommunityTasksPath>
+    <MSBuildCommunityTasksPath>\.build\MSBuildTasks.1.5.0.214\tools\</MSBuildCommunityTasksPath>
   </PropertyGroup>
-  <Import Project=".build\MSBuildTasks.1.5.0.196\tools\MSBuild.Community.Tasks.Targets" />
+  <Import Project=".build\MSBuildTasks.1.5.0.214\tools\MSBuild.Community.Tasks.Targets" />
 
   <ItemGroup>
     <AssemblyVersionFiles Include="$(MSBuildProjectDirectory)\src\CommonAssemblyInfo.cs"/>
