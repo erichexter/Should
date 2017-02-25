@@ -26,7 +26,7 @@ namespace Should.Fluent
                 (t, a) => a.IsFalse(string.IsNullOrEmpty(t)));
         }
 
-#if !NETFX_CORE
+#if !NETFX_CORE && !NETSTANDARD1_6
         public static T ConvertableTo<T>(this IBe<string> be)
         {
             Func<string, IAssertProvider, object> positiveCase = (t, a) =>

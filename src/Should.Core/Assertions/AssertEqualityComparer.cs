@@ -9,14 +9,18 @@ namespace Should.Core.Assertions
     {
         public bool Equals(T x, T y)
         {
-#if NETFX_CORE
+#if NETFX_CORE || NETSTANDARD1_6
             var type = typeof(T).GetTypeInfo();
 #else
             var type = typeof(T);
 #endif
 
             // Null?
+#if NETSTANDARD1_6
+            if (!type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition().GetTypeInfo().IsAssignableFrom(typeof(Nullable<>))))
+#else
             if (!type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition().IsAssignableFrom(typeof(Nullable<>))))
+#endif
             {
                 if (Object.Equals(x, default(T)))
                     return Object.Equals(y, default(T));
@@ -26,12 +30,20 @@ namespace Should.Core.Assertions
             }
 
             //x implements IEquitable<T> and is assignable from y?
+#if NETSTANDARD1_6
+            var xIsAssignableFromY = x.GetType().GetTypeInfo().IsAssignableFrom(y.GetType());
+#else
             var xIsAssignableFromY = x.GetType().IsAssignableFrom(y.GetType());
+#endif
             if (xIsAssignableFromY && x is IEquatable<T>)
                 return ((IEquatable<T>)x).Equals(y);
 
             //y implements IEquitable<T> and is assignable from x?
+#if NETSTANDARD1_6
+            var yIsAssignableFromX = y.GetType().GetTypeInfo().IsAssignableFrom(x.GetType());
+#else
             var yIsAssignableFromX = y.GetType().IsAssignableFrom(x.GetType());
+#endif
             if (yIsAssignableFromX && y is IEquatable<T>)
                 return ((IEquatable<T>)y).Equals(x);
 
