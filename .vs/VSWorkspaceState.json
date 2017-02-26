@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Should-net35",
+    "\\src\\Should-net40",
+    "\\src\\Should-netcore45",
+    "\\src\\Should.Core",
+    "\\src\\should.Facts",
+    "\\src\\Should.Fluent",
+    "\\src\\Should.Fluent-net35",
+    "\\src\\Should.Fluent-net40",
+    "\\src\\Should.Fluent-netcore45",
+    "\\src\\Should.Fluent.UnitTests"
+  ],
+  "SelectedNode": "\\src\\Should.sln",
+  "PreviewInSolutionExplorer": false
+}

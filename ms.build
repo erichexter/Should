@@ -44,6 +44,7 @@
 
   <Target Name="Compile" >
     <MSBuild Projects="src\Should.sln" Properties="Configuration=Release;Platform=Any CPU;NoWarn=0169,0612,1572,1573,1574,1591,1734" />
+	<MSBuild Projects="src\Should.DotNetCore.sln" Properties="Configuration=Release;Platform=Any CPU;NoWarn=0169,0612,1572,1573,1574,1591,1734" />
   </Target>
 
   <Target Name="Test">
