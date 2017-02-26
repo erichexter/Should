@@ -1,13 +1,23 @@
-<package>
+﻿<package>
   <metadata>
     <id>ShouldFluent</id>
     <version>1.0.0.0</version>
     <authors>Eric Hexter, Tim Scott</authors>
     <description>The Should Assertion Library provides a set of extension methods for test assertions for AAA and BDD style tests. It provides assertions only, and as a result it is test runner agnostic.  The assertions are a direct fork of the xUnit test assertions.  This project was born because test runners Should be independent of the assertions!</description>
     <language>en-US</language>
+    <projectUrl>https://github.com/erichexter/Should/blob/master/README.markdown</projectUrl>
+    <licenseUrl>https://github.com/erichexter/Should/blob/master/license.txt</licenseUrl>
+    <dependencies>
+      <group targetFramework="netstandard1.6">
+        <dependency id="System.Runtime.Serialization.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
   </metadata>
-	<files>
-	<file src="output\publish\Should.Fluent.dll" target="lib"/>
+  <files>
+    <file src="src\Should.Fluent-net35\bin\Release\Should.Fluent.dll" target="lib\net35\Should.Fluent.dll" />
+    <file src="src\Should.Fluent-net40\bin\Release\Should.Fluent.dll" target="lib\net40\Should.Fluent.dll" />
+    <file src="src\Should.Fluent-netcore45\bin\Release\Should.Fluent.dll" target="lib\netcore45\Should.Fluent.dll" />
+    <file src="src\Should.Fluent-DotNetCore\bin\Release\netstandard1.6\Should.Fluent.dll" target="lib\netstandard1.6\Should.Fluent.dll" />
   </files>
-
 </package>

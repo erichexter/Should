@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <Version Condition="'$(PackageVersion)'!=''">$(PackageVersion)</Version>
+    <Version Condition="'$(Version)'==''">0.0.0.1</Version>
+    <CompanyName>Should Assertion Library</CompanyName>
+  </PropertyGroup>
+
+  <UsingTask
+    AssemblyFile=".build\xunit.runner.msbuild.2.1.0\build\portable-net45+win8+wp8+wpa81\xunit.runner.msbuild.dll"
+    TaskName="Xunit.Runner.MSBuild.xunit"/>
+
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>\.build\MSBuildTasks.1.5.0.214\tools\</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project=".build\MSBuildTasks.1.5.0.214\tools\MSBuild.Community.Tasks.Targets" />
+
+  <ItemGroup>
+    <AssemblyVersionFiles Include="$(MSBuildProjectDirectory)\src\CommonAssemblyInfo.cs"/>
+  </ItemGroup>
+
+  <Target Name="AssemblyVersion"
+                  Inputs="@(AssemblyVersionFiles)"
+                  Outputs="UpdatedAssemblyVersionFiles">
+    <Message Text="Version=$(Version)"/>
+    <Attrib Files="%(AssemblyVersionFiles.FullPath)"
+                Normal="true"/>
+    <AssemblyInfo
+        CodeLanguage="CS"
+        OutputFile="%(AssemblyVersionFiles.FullPath)"
+        ComVisible="false"
+        AssemblyVersion="$(Version)"
+        AssemblyFileVersion="$(Version)"
+        AssemblyCopyright="Copyright $(CompanyName) 2007-2016."
+        AssemblyProduct="Should"
+        AssemblyCompany="$(CompanyName)"
+        AssemblyConfiguration="Release"
+        AssemblyInformationalVersion="$(Version)" >
+      <Output TaskParameter="OutputFile"
+                      ItemName="UpdatedAssemblyVersionFiles"/>
+    </AssemblyInfo>
+  </Target>
+
+  <Target Name="Compile" >
+    <MSBuild Projects="src\Should.sln" Properties="Configuration=Release;Platform=Any CPU;NoWarn=0169,0612,1572,1573,1574,1591,1734" />
+	<MSBuild Projects="src\Should.DotNetCore.sln" Properties="Configuration=Release;Platform=Any CPU;NoWarn=0169,0612,1572,1573,1574,1591,1734" />
+  </Target>
+
+  <Target Name="Test">
+    <xunit Assemblies="src\Should.Facts\bin\Release\Should.Facts.dll" />
+  </Target>
+
+  <Target Name="Pack">
+    <exec Command="tools\nuget.exe pack Should.nuspec -Version $(Version)"/>
+    <exec Command="tools\nuget.exe pack ShouldFluent.nuspec -Version $(Version)"/>
+  </Target>
+
+  <Target Name="build" DependsOnTargets="AssemblyVersion;Compile;Test;Pack"/>
+</Project>

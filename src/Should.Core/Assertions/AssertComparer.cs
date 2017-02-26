@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Should.Core.Assertions
 {
@@ -7,10 +8,18 @@ namespace Should.Core.Assertions
     {
         public int Compare(T x, T y)
         {
-            Type type = typeof(T);
+#if NETFX_CORE || NETSTANDARD1_6
+            var type = typeof(T).GetTypeInfo();
+#else
+            var type = typeof(T);
+#endif
 
             // Null?
+#if NETSTANDARD1_6
+            if (!type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition().GetTypeInfo().IsAssignableFrom(typeof(Nullable<>))))
+#else
             if (!type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition().IsAssignableFrom(typeof(Nullable<>))))
+#endif
             {
                 if (Equals(x, default(T)))
                 {
@@ -21,8 +30,13 @@ namespace Should.Core.Assertions
                     return -1;
             }
 
+#if NETSTANDARD1_6
+            var xIsAssignableFromY = x.GetType().GetTypeInfo().IsAssignableFrom(y.GetType());
+            var yIsAssignableFromX = y.GetType().GetTypeInfo().IsAssignableFrom(x.GetType());
+#else
             var xIsAssignableFromY = x.GetType().IsAssignableFrom(y.GetType());
             var yIsAssignableFromX = y.GetType().IsAssignableFrom(x.GetType());
+#endif
 
             if (!xIsAssignableFromY && !yIsAssignableFromX)
                 throw new InvalidOperationException(string.Format("Cannot compare objects of type {0} and {1} because neither is assignable from the other.", x.GetType().Name, y.GetType().Name));
@@ -80,18 +94,23 @@ namespace Should.Core.Assertions
         //Note: Handles edge case of a class where operators are overloaded but niether IComparable or IComparable<T> are implemented
         private int? CompareUsingOperators(T x, T y, Type type)
         {
-            var greaterThan = type.GetMethod("op_GreaterThan");
+#if NETSTANDARD1_6
+            var type2 = type.GetTypeInfo();
+#else
+            var type2 = type;
+#endif
+            var greaterThan = type2.GetMethod("op_GreaterThan");
             if (greaterThan != null)
             {
-                var lessThan = type.GetMethod("op_LessThan");
+                var lessThan = type2.GetMethod("op_LessThan");
                 return (bool)greaterThan.Invoke(null, new object[] { x, y })
                     ? 1
                     : (bool)lessThan.Invoke(null, new object[] { x, y }) ? -1 : 0;
             }
-            var greaterThanOrEqual = type.GetMethod("op_GreaterThanOrEqual");
+            var greaterThanOrEqual = type2.GetMethod("op_GreaterThanOrEqual");
             if (greaterThanOrEqual != null)
             {
-                var lessThanOrEqual = type.GetMethod("op_LessThanOrEqual");
+                var lessThanOrEqual = type2.GetMethod("op_LessThanOrEqual");
                 return (bool)greaterThanOrEqual.Invoke(null, new object[] { x, y })
                     ? (bool)lessThanOrEqual.Invoke(null, new object[] { x, y }) ? 0 : 1
                     : -1;
