@@ -7,6 +7,12 @@
     <language>en-US</language>
     <projectUrl>https://github.com/erichexter/Should/blob/master/README.markdown</projectUrl>
     <licenseUrl>https://github.com/erichexter/Should/blob/master/license.txt</licenseUrl>
+    <dependencies>
+      <group targetFramework="netstandard1.6">
+        <dependency id="System.Runtime.Serialization.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="src\Should.Fluent-net35\bin\Release\Should.Fluent.dll" target="lib\net35\Should.Fluent.dll" />
