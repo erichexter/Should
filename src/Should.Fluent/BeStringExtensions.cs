@@ -26,6 +26,7 @@ namespace Should.Fluent
                 (t, a) => a.IsFalse(string.IsNullOrEmpty(t)));
         }
 
+#if !NETFX_CORE && !NETSTANDARD1_6
         public static T ConvertableTo<T>(this IBe<string> be)
         {
             Func<string, IAssertProvider, object> positiveCase = (t, a) =>
@@ -53,6 +54,7 @@ namespace Should.Fluent
             };
             return (T)be.Should.Apply(positiveCase, negativeCase);
         }
+#endif
 
         public static string GreaterThan(this IBe<string> be, string value)
         {

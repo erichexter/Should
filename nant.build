@@ -16,7 +16,7 @@
 	<property name="dir.publish" value="${dir.output}\publish"/>
 	<property name="dir.test.results" value="${dir.output}\test-results"/>
 	<!-- Compilation -->
-	<property name="nant.settings.currentframework" value="net-3.5" />
+	<property name="nant.settings.currentframework" value="net-4.0" />
 	<property name="framework" value="${framework::get-framework-directory(framework::get-target-framework())}" />
 	<property name="msbuild" value="${framework}\msbuild.exe" />
 	<property name="file.solution" value="${dir.solution}\${project::get-name()}.sln"/>

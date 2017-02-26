@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>98a525e4-0f1c-43f4-a947-f3546c5771bf</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Should.Core.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Assertions\Assert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assertions\AssertComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assertions\AssertEqualityComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assertions\Assertions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assertions\EnumerableEqualityComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assertions\Record.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DatePrecision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\AssertActualExpectedException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\AssertException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ComparisonException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ContainsException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\DoesNotContainException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\DoesNotThrowException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\EmptyException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\EqualException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\FalseException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\GreaterThanException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\GreaterThanOrEqualException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\InRangeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\IsAssignableFromException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\IsNotTypeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\IsTypeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\LessThanException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\LessThanOrEqualException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NotEmptyException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NotEqualException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NotInRangeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NotNullException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NotSameException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\NullException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ParameterCountMismatchException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\SameException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\SingleException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\StartsWithException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\ThrowsException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\TimeoutException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\TraceAssertException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\TrueException.cs" />
+  </ItemGroup>
+</Project>

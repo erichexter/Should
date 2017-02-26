@@ -1,3 +1,5 @@
+This fork [![shoulduwp MyGet Build Status](https://www.myget.org/BuildSource/Badge/shoulduwp?identifier=b8cd0611-0efd-4271-b774-496f62f2c644)](https://www.myget.org/)
+
 ## Project Description
 
 The **Should Assertion Library** provides a set of extension methods for test assertions for AAA and BDD style tests.  It provides assertions only, and as a result it is Test runner agnostic.  The assertions are a direct fork of the [xUnit](http://xunit.codeplex.com) test assertions.  This project was born because test runners *Should* be independent of the the assertions!

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d44d056f-b8ab-4902-ad6d-3e38cf2d7044</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Should.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ActionAssertionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BooleanAssertionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CollectionAssertionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateAssertionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DoubleAssertionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectAssertExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringAssertionExtensions.cs" />
+  </ItemGroup>
+</Project>
