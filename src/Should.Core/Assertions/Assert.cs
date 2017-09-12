@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Should.Core.Exceptions;
+using System.Reflection;
 
 namespace Should.Core.Assertions
 {
