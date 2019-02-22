@@ -1,6 +1,6 @@
 using Machine.Specifications;
-using NUnit.Framework;
 using Should.Fluent.Model;
+using Xunit;
 
 namespace Should.Fluent.UnitTests
 {
@@ -20,7 +20,7 @@ namespace Should.Fluent.UnitTests
         const double expected = 5.001;
         const double tolerance = 0.001;
         Because of = () => result = should.Equal(expected, tolerance);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_assert_areequal = () => Called(x => x.AreEqual(expected, target, tolerance));
     }
 
@@ -29,7 +29,7 @@ namespace Should.Fluent.UnitTests
         const double expected = 5.001;
         const double tolerance = 0.001;
         Because of = () => result = should.Not.Equal(expected, tolerance);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_assert_areequal = () => Called(x => x.AreNotEqual(expected, target, tolerance));
     }
 }

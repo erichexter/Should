@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Machine.Specifications;
-using NUnit.Framework;
-using Should.Fluent.Model;
-using It=Machine.Specifications.It;
+using Xunit;
+using It = Machine.Specifications.It;
 using IT = Moq.It;
 
 namespace Should.Fluent.UnitTests
@@ -128,7 +127,7 @@ namespace Should.Fluent.UnitTests
         {
             var converter = TypeDescriptor.GetConverter(typeof(Guid));
             var expected = (Guid)converter.ConvertFrom(actual);
-            Assert.AreEqual(result, expected);
+            Assert.Equal(result, expected);
         };
         It should_not_fail = NotFail;
     }
@@ -138,7 +137,7 @@ namespace Should.Fluent.UnitTests
         const string actual = "foo";
         static int result;
         Because of = () => result = actual.Should().Not.Be.ConvertableTo<int>();
-        It result_is_default = () => Assert.AreEqual(result, 0);
+        It result_is_default = () => Assert.Equal(result, 0);
         It should_not_fail = NotFail;
     }
 }

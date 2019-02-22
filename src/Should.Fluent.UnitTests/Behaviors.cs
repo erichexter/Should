@@ -1,7 +1,7 @@
 ﻿using System;
 using Machine.Specifications;
-using NUnit.Framework;
 using Should.Core.Exceptions;
+using Xunit;
 
 namespace Should.Fluent.UnitTests
 {
@@ -12,8 +12,8 @@ namespace Should.Fluent.UnitTests
 
         It should_throw_assert_exception_of_expected_type = () =>
         {
-            Assert.IsNotNull(exception);
-            Assert.IsInstanceOfType(typeof(T), exception);
+            Assert.NotNull(exception);
+            Assert.IsType<T>(exception);
         };
     }
 
@@ -21,6 +21,6 @@ namespace Should.Fluent.UnitTests
     public class DoesNotThrow
     {
         protected static Exception exception;
-        It should_throw_not_equal_exception = () => Assert.IsNull(exception);
+        It should_throw_not_equal_exception = () => Assert.Null(exception);
     }
 }

@@ -17,7 +17,7 @@ namespace Should.Facts
                 s.ShouldNotBeNull("custom failure message");
             });
 
-            Assert.Equal(ex.Message, "custom failure message");
+            Assert.Equal("custom failure message", ex.Message);
         }
 
         [Fact]

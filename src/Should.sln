@@ -1,6 +1,5 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{724F85B0-4E93-46D4-AD51-D04C54139498}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Should", "should\Should.csproj", "{5606A23D-EBDA-4563-B303-F19CEFE9EC32}"

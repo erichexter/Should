@@ -21,8 +21,7 @@ namespace Should.Facts
         public void ShouldThrow_fails_if_a_different_exception_is_thrown()
         {
             Action action = () => ThrowMethod();
-            Assert.Throws(
-                typeof(Should.Core.Exceptions.ThrowsException),
+            Assert.Throws<Should.Core.Exceptions.ThrowsException>(
                 () => action.ShouldThrow<ApplicationException>());
         }
     }

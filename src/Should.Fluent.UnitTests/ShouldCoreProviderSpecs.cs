@@ -1,6 +1,5 @@
 using System;
 using Machine.Specifications;
-using NUnit.Framework;
 using Should.Core;
 using Should.Core.Exceptions;
 

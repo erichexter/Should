@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
+using Should.Core.Exceptions;
 using Xunit;
-using Xunit.Sdk;
 using Assert = Should.Core.Assertions.Assert;
 
 namespace Should.Facts.Core

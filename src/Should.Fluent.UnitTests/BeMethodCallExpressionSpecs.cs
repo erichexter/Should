@@ -2,7 +2,7 @@ using System;
 using System.Linq.Expressions;
 using Machine.Specifications;
 using Should.Fluent.Model;
-using It=Machine.Specifications.It;
+using It = Machine.Specifications.It;
 using IT = Moq.It;
 
 namespace Should.Fluent.UnitTests
