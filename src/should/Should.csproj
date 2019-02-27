@@ -1,6 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageVersion>2.0.0</PackageVersion>
+    <Title>Should Assertion Library</Title>
+    <Description>The Should Assertion Library provides a set of extension methods for test assertions for AAA and BDD style tests. It provides assertions only, and as a result it is Test runner agnostic. The assertions are a direct fork of the xUnit test assertions. This project was born because test runners Should be independent of the the assertions!</Description>
+    <Copyright>Copyright © Should Assertion Library 2007-2019</Copyright>
+    <PackageProjectUrl>https://github.com/erichexter/Should/</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/erichexter/Should/blob/master/license.txt</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/erichexter/Should/</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Should.Core\Should.Core.csproj" />
