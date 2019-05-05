@@ -1,7 +1,7 @@
 using System;
 using Machine.Specifications;
 using Should.Fluent.Model;
-using It=Machine.Specifications.It;
+using It = Machine.Specifications.It;
 
 namespace Should.Fluent.UnitTests
 {

@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using Machine.Specifications;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 using IT = Moq.It;
 
 //NOTE: Explcitly call methods on ShouldExtensions to prevent collisions with m-spec extension methods
@@ -61,12 +61,12 @@ namespace Should.Fluent.UnitTests
 
         protected static void VerifyResultType<TExpetected>()
         {
-            Assert.IsInstanceOfType(typeof(TExpetected), result);
+            Assert.IsType<TExpetected>(result);
         }
 
         protected static void VerifyResult(object actual)
         {
-            Assert.AreEqual(actual, result);
+            Assert.Equal(actual, result);
         }
     }
 

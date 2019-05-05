@@ -1,7 +1,7 @@
 using Machine.Specifications;
-using NUnit.Framework;
 using Should.Fluent.Model;
-using It=Machine.Specifications.It;
+using Xunit;
+using It = Machine.Specifications.It;
 
 namespace Should.Fluent.UnitTests
 {
@@ -20,15 +20,15 @@ namespace Should.Fluent.UnitTests
     {
         const string expected = "foo";
         Because of = () => result = should.Equal(expected);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
-        It should_assert_areequal = () => Called(x => x.AreEqual(expected, target));
+        It result_should_equal_target = () => Assert.Equal(target, result);
+        It should_assert_Equal = () => Called(x => x.AreEqual(expected, target));
     }
 
     public class when_calling_not_equal : should_context
     {
         const string expected = "bar";
         Because of = () => result = should.Not.Equal(expected);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_assert_arenotequal = () => Called(x => x.AreNotEqual(expected, target));
     }
 
@@ -44,7 +44,7 @@ namespace Should.Fluent.UnitTests
     {
         const string expected = "f";
         Because of = () => result = should.StartWith(expected);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_not_fail = NotFail;
     }
 
@@ -59,7 +59,7 @@ namespace Should.Fluent.UnitTests
     {
         const string expected = "x";
         Because of = () => result = should.Not.StartWith(expected);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_not_fail = NotFail;
     }
 
@@ -74,7 +74,7 @@ namespace Should.Fluent.UnitTests
     {
         const string expected = "o";
         Because of = () => result = should.EndWith(expected);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_not_fail = NotFail;
     }
 
@@ -89,7 +89,7 @@ namespace Should.Fluent.UnitTests
     {
         const string expected = "x";
         Because of = () => result = should.Not.EndWith(expected);
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_not_fail = NotFail;
     }
 
@@ -105,7 +105,7 @@ namespace Should.Fluent.UnitTests
         const string expected = "oo";
         Because of = () => result = should.Contain(expected);
         It should_assert_issubstringof = () => Called(x => x.IsSubstringOf(target, expected));
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_not_fail = NotFail;
     }
 
@@ -114,7 +114,7 @@ namespace Should.Fluent.UnitTests
         protected static string expected = "x";
         Because of = () => result = should.Not.Contain(expected);
         It should_not_assert_issubstringof = () => NotCalled(x => x.IsSubstringOf(target, expected));
-        It result_should_equal_target = () => Assert.AreEqual(target, result);
+        It result_should_equal_target = () => Assert.Equal(target, result);
         It should_not_fail = NotFail;
     }
 
