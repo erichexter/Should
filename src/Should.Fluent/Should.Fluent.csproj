@@ -4,7 +4,7 @@
     <AssemblyName>Should.Fluent</AssemblyName>
     <RootNamespace>Should.Fluent</RootNamespace>
     <IsPackable>true</IsPackable>
-    <PackageId>Should.Fluent</PackageId>
+    <PackageId>ShouldFluent</PackageId>
     <Description>Fluent assertion API for the Should Assertion Library. Test runner agnostic.</Description>
   </PropertyGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@ Both target **netstandard2.0** (compatible with .NET Framework 4.6.1+, .NET Core
 
 ```
 dotnet add package Should
-dotnet add package Should.Fluent
+dotnet add package ShouldFluent
 ```
 
 ---
