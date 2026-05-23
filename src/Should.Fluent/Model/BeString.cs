@@ -16,7 +16,7 @@ namespace Should.Fluent.Model
 
         public string Null()
         {
-            return Check.IsNull(should, assertProvider);
+            return Check.IsNull(should);
         }
 
         public string Empty()

@@ -1,5 +1,5 @@
-﻿using System;
-using Machine.Specifications;
+using System;
+using NUnit.Framework;
 
 namespace Should.Fluent.UnitTests.IntegrationTests
 {
@@ -7,9 +7,23 @@ namespace Should.Fluent.UnitTests.IntegrationTests
     {
         protected static Exception exception;
 
+        [SetUp]
+        public virtual void SetUp()
+        {
+            exception = null;
+        }
+
         protected static void Try(Action assertAction)
         {
-            exception = Catch.Exception(assertAction);
+            try
+            {
+                assertAction();
+                exception = null;
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
         }
     }
 }

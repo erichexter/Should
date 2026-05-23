@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <Version>2.0.0</Version>
+    <Authors>Eric Hexter, Tim Scott</Authors>
+    <Company>Should Assertion Library</Company>
+    <Product>Should</Product>
+    <Copyright>Copyright © Should Assertion Library 2007-2026</Copyright>
+    <PackageProjectUrl>https://github.com/erichexter/Should</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/erichexter/Should</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <WarningLevel>5</WarningLevel>
+    <NoWarn>8618;8600;8625;8601</NoWarn>
+  </PropertyGroup>
+</Project>

@@ -13,7 +13,7 @@ namespace Should.Fluent.Model
 
         public bool? Null()
         {
-            return Check.IsNull(should, assertProvider);
+            return Check.IsNull(should);
         }
 
         public bool? True()

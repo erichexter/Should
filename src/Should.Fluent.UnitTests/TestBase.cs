@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Linq.Expressions;
-using Machine.Specifications;
 using Moq;
 using NUnit.Framework;
 using IT = Moq.It;
@@ -12,10 +11,11 @@ namespace Should.Fluent.UnitTests
     {
         protected static Mock<IAssertProvider> mockAssertProvider;
 
-        private Establish context = () =>
+        [SetUp]
+        public virtual void SetUp()
         {
-            mockAssertProvider = new MockFactory(MockBehavior.Loose).Create<IAssertProvider>();
-        };
+            mockAssertProvider = new Mock<IAssertProvider>(MockBehavior.Loose);
+        }
 
         protected static void Called(Expression<Action<IAssertProvider>> action)
         {
@@ -61,7 +61,7 @@ namespace Should.Fluent.UnitTests
 
         protected static void VerifyResultType<TExpetected>()
         {
-            Assert.IsInstanceOfType(typeof(TExpetected), result);
+            Assert.IsInstanceOf(typeof(TExpetected), result);
         }
 
         protected static void VerifyResult(object actual)
@@ -72,14 +72,34 @@ namespace Should.Fluent.UnitTests
 
     public class mocked_assert_provider_context : test_base
     {
-        Establish context = () => ShouldExtensions.AssertProvider = mockAssertProvider.Object;
-        Cleanup after_all = ShouldExtensions.ResetAssertProvider;
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            ShouldExtensions.AssertProvider = mockAssertProvider.Object;
+        }
+
+        [TearDown]
+        public virtual void TearDown()
+        {
+            ShouldExtensions.ResetAssertProvider();
+        }
     }
 
     public class mocked_assert_provider_context<T> : test_base<T>
     {
-        Establish context = () => ShouldExtensions.AssertProvider = mockAssertProvider.Object;
-        Cleanup after_all = ShouldExtensions.ResetAssertProvider;
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            ShouldExtensions.AssertProvider = mockAssertProvider.Object;
+        }
+
+        [TearDown]
+        public virtual void TearDown()
+        {
+            ShouldExtensions.ResetAssertProvider();
+        }
     }
 
     public class Foo

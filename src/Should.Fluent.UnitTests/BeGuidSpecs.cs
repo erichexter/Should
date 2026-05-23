@@ -1,7 +1,6 @@
 using System;
-using Machine.Specifications;
+using NUnit.Framework;
 using Should.Fluent.Model;
-using It=Machine.Specifications.It;
 
 namespace Should.Fluent.UnitTests
 {
@@ -12,25 +11,67 @@ namespace Should.Fluent.UnitTests
 
     public class should_be_guid_context : be_guid_test_base
     {
-        Establish context = () => be = new Should<Guid, BeBase<Guid>>(target, mockAssertProvider.Object).Be;
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            be = new Should<Guid, BeBase<Guid>>(target, mockAssertProvider.Object).Be;
+        }
     }
 
     public class should_not_be_guid_context : be_guid_test_base
     {
-        Establish context = () => be = new Should<Guid, BeBase<Guid>>(target, mockAssertProvider.Object).Not.Be;
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            be = new Should<Guid, BeBase<Guid>>(target, mockAssertProvider.Object).Not.Be;
+        }
     }
 
+    [TestFixture]
     public class when_calling_guid_empty : should_be_guid_context
     {
-        Because of = () => result = be.Empty();
-        Behaves_like<result_should_be_target<Guid>> yes;
-        It should_assert_areequal = () => Called(x => x.AreEqual(Guid.Empty, target));
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            result = be.Empty();
+        }
+
+        [Test]
+        public void should_return_self()
+        {
+            Assert.AreEqual(target, result);
+        }
+
+        [Test]
+        public void should_assert_areequal()
+        {
+            Called(x => x.AreEqual(Guid.Empty, target));
+        }
     }
 
+    [TestFixture]
     public class when_calling_guid_not_empty : should_not_be_guid_context
     {
-        Because of = () => result = be.Empty();
-        Behaves_like<result_should_be_target<Guid>> yes;
-        It should_assert_arenotequal = () => Called(x => x.AreNotEqual(Guid.Empty, target));
+        [SetUp]
+        public override void SetUp()
+        {
+            base.SetUp();
+            result = be.Empty();
+        }
+
+        [Test]
+        public void should_return_self()
+        {
+            Assert.AreEqual(target, result);
+        }
+
+        [Test]
+        public void should_assert_arenotequal()
+        {
+            Called(x => x.AreNotEqual(Guid.Empty, target));
+        }
     }
 }

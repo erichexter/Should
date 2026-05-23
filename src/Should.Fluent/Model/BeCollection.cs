@@ -28,7 +28,7 @@ namespace Should.Fluent.Model
 
         public ICollection Null()
         {
-            return Check.IsNull(should, assertProvider);
+            return Check.IsNull(should);
         }
     }
 }

@@ -1,24 +1,54 @@
-﻿using Machine.Specifications;
+using NUnit.Framework;
 using Should.Fluent.Model;
 
 namespace Should.Fluent.UnitTests
 {
+    [TestFixture]
     public class when_extending_IBe
     {
-        It should_handle_positive_case = () => "xxx".Should().Be.NoLongerThan(3);
-        It should_handle_negative_case = () => "xxx".Should().Not.Be.NoLongerThan(2);
+        [Test]
+        public void should_handle_positive_case()
+        {
+            "xxx".Should().Be.NoLongerThan(3);
+        }
+
+        [Test]
+        public void should_handle_negative_case()
+        {
+            "xxx".Should().Not.Be.NoLongerThan(2);
+        }
     }
 
+    [TestFixture]
     public class when_extending_bestring
     {
-        It should_handle_positive_case = () => new Foo("bar").Should().Be.Bar();
-        It should_handle_negative_case = () => new Foo("baz").Should().Not.Be.Bar();
+        [Test]
+        public void should_handle_positive_case()
+        {
+            new Foo("bar").Should().Be.Bar();
+        }
+
+        [Test]
+        public void should_handle_negative_case()
+        {
+            new Foo("baz").Should().Not.Be.Bar();
+        }
     }
 
+    [TestFixture]
     public class when_extending_be
     {
-        It should_handle_positive_case = () => 1.Should().Be.One();
-        It should_handle_negative_case = () => 2.Should().Not.Be.One();
+        [Test]
+        public void should_handle_positive_case()
+        {
+            1.Should().Be.One();
+        }
+
+        [Test]
+        public void should_handle_negative_case()
+        {
+            2.Should().Not.Be.One();
+        }
     }
 
     public static class BeExtensions

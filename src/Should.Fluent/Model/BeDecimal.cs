@@ -15,11 +15,11 @@ namespace Should.Fluent.Model
         {
             if (should.Negate)
             {
-                assertProvider.LessOrEqual(0, should.Target);
+                assertProvider.LessThanOrEqual(should.Target, 0);
             }
             else
             {
-                assertProvider.Greater(0, should.Target);
+                assertProvider.GreaterThan(should.Target, 0);
             }
             return should.Target;
         }
@@ -28,11 +28,11 @@ namespace Should.Fluent.Model
         {
             if (should.Negate)
             {
-                assertProvider.GreaterOrEqual(0, should.Target);
+                assertProvider.GreaterThanOrEqual(should.Target, 0);
             }
             else
             {
-                assertProvider.Less(0, should.Target);
+                assertProvider.LessThan(should.Target, 0);
             }
             return should.Target;
         }

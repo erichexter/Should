@@ -15,7 +15,7 @@ namespace Should.Fluent.Model
 
         public DateTime? Null()
         {
-            return Check.IsNull(should, assertProvider);
+            return Check.IsNull(should);
         }
 
         public DateTime? Today()

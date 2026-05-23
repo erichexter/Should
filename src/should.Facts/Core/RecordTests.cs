@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using Assert = Should.Core.Assertions.Assert;
+using Record = Should.Core.Assertions.Record;
 
 namespace Should.Facts.Core
 {

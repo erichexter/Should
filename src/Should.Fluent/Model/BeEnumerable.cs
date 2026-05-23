@@ -29,7 +29,7 @@ namespace Should.Fluent.Model
 
         public IEnumerable<T> Null()
         {
-            return Check.IsNull(should, assertProvider);
+            return Check.IsNull(should);
         }
     }
 }

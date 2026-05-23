@@ -8,6 +8,9 @@ namespace Should.Fluent.Model
         protected TTarget target;
         protected bool negate;
 
+        public bool Negate => negate;
+        public TTarget Target => target;
+
         public ShouldBase(TTarget target, IAssertProvider assertProvider)
         {
             this.assertProvider = assertProvider;

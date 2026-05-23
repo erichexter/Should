@@ -165,3 +165,10 @@ pip-log.txt
 .DS_Store
 
 output
+
+# Modern .NET additions
+.vs/
+*.nupkg
+nupkgs/
+*.trx
+packages/
