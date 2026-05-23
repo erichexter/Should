@@ -14,11 +14,11 @@ namespace Should.Core.Assertions
             {
                 if (Equals(x, default(T)))
                 {
-                    return Equals(y, default(T)) ? 0 : 1;
+                    return Equals(y, default(T)) ? 0 : -1;
                 }
 
                 if (Equals(y, default(T)))
-                    return -1;
+                    return 1;
             }
 
             var xIsAssignableFromY = x.GetType().IsAssignableFrom(y.GetType());

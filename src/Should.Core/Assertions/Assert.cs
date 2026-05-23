@@ -535,7 +535,7 @@ namespace Should.Core.Assertions
         public static void IsNotType(Type expectedType,
                                      object @object)
         {
-            if (expectedType.Equals(@object.GetType()))
+            if (@object != null && expectedType.Equals(@object.GetType()))
                 throw new IsNotTypeException(expectedType, @object);
         }
 

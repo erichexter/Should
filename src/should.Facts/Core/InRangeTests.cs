@@ -67,15 +67,15 @@ namespace Should.Facts.Core
             }
 
             [Fact]
-            public void When_comparing_something_in_range_high_bounded_by_a_null_Should_throw_InRangeException()
+            public void When_actual_is_in_range_with_null_low_bound_Should_pass()
             {
-                Assert.Throws<InRangeException>(() => Assert.InRange("m", null, "z"));
+                Assert.InRange("m", null, "z");
             }
 
             [Fact]
-            public void When_comparing_something_in_range_low_bounded_by_a_null_Should_pass()
+            public void When_actual_is_in_range_with_null_high_bound_Should_throw_InRangeException()
             {
-                Assert.InRange("m", "a", null);
+                Assert.Throws<InRangeException>(() => Assert.InRange("m", "a", null));
             }
 
             [Fact]
