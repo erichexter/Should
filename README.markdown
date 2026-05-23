@@ -1,127 +1,151 @@
-## Project Description
+## Should Assertion Library
 
-The **Should Assertion Library** provides a set of extension methods for test assertions for AAA and BDD style tests.  It provides assertions only, and as a result it is Test runner agnostic.  The assertions are a direct fork of the [xUnit](http://xunit.codeplex.com) test assertions.  This project was born because test runners *Should* be independent of the the assertions!
+The **Should Assertion Library** provides extension methods for test assertions in AAA and BDD style tests. It is test-runner agnostic — use it with xUnit, NUnit, MSTest, or anything else. The assertions are based on a fork of the xUnit assertion library.
 
-**Should Assertion Library** comes in two flavors, each with its own binary.
+**Should** comes in two packages:
 
- * Standard (Should.dll)
- * Fluent (Should.Fluent.dll)
+| Package | Description |
+|---------|-------------|
+| `Should` | Extension-method style assertions |
+| `Should.Fluent` | Fluent chain style assertions |
 
-  Use our prerelease nuget feed: http://www.myget.org/F/should/
+Both target **netstandard2.0** (compatible with .NET Framework 4.6.1+, .NET Core 2.0+, .NET 5–9+) and **net9.0** (native for .NET 9 apps). NuGet picks the right build automatically.
 
-###Standard
+---
 
-Install from nuget.
+### Installation
 
-    PM> install-package should
+```
+dotnet add package Should
+dotnet add package Should.Fluent
+```
 
-The following example shows some of the assertions that are available for objects, booleans, string, and collections.
+---
 
-    public void Should_assertions()
-    {
-       object obj = null;
-       obj.ShouldBeNull();
+### Standard API
 
-        obj = new object();
-        obj.ShouldBeType(typeof(object));
-        obj.ShouldEqual(obj);
-        obj.ShouldNotBeNull();
-        obj.ShouldNotBeSameAs(new object());
-        obj.ShouldNotBeType(typeof(string));
-        obj.ShouldNotEqual("foo");
+```csharp
+object obj = null;
+obj.ShouldBeNull();
 
-        obj = "x";
-        obj.ShouldNotBeInRange("y", "z");
-        obj.ShouldBeInRange("a", "z");
-        obj.ShouldBeSameAs("x");
+obj = new object();
+obj.ShouldBeType(typeof(object));
+obj.ShouldEqual(obj);
+obj.ShouldNotBeNull();
+obj.ShouldNotBeSameAs(new object());
+obj.ShouldNotBeType(typeof(string));
+obj.ShouldNotEqual("foo");
 
-        "This String".ShouldContain("This");
-        "This String".ShouldNotBeEmpty();
-        "This String".ShouldNotContain("foobar");
+obj = "x";
+obj.ShouldNotBeInRange("y", "z");
+obj.ShouldBeInRange("a", "z");
+obj.ShouldBeSameAs("x");
 
-        false.ShouldBeFalse();
-        true.ShouldBeTrue();
+"This String".ShouldContain("This");
+"This String".ShouldNotBeEmpty();
+"This String".ShouldNotContain("foobar");
 
-        var list = new List<object>();
-        list.ShouldBeEmpty();
-        list.ShouldNotContain(new object());
+false.ShouldBeFalse();
+true.ShouldBeTrue();
 
-        var item = new object();
-        list.Add(item);
-        list.ShouldNotBeEmpty();
-        list.ShouldContain(item);
-    }
+var list = new List<object>();
+list.ShouldBeEmpty();
+list.ShouldNotContain(new object());
 
-###Fluent
+var item = new object();
+list.Add(item);
+list.ShouldNotBeEmpty();
+list.ShouldContain(item);
+```
 
-Should.Fluent is a direct port of [ShouldIt](http://code.google.com/p/shouldit).  Install from nuget.
+---
 
-    PM> install-package ShouldFluent
+### Fluent API
 
-The following shows the same assertions as above but in the fluent style.
+```csharp
+object obj = null;
+obj.Should().Be.Null();
 
-    public void Should_fluent_assertions()
-    {
-        object obj = null;
-        obj.Should().Be.Null();
+obj = new object();
+obj.Should().Be.OfType(typeof(object));
+obj.Should().Equal(obj);
+obj.Should().Not.Be.Null();
+obj.Should().Not.Be.SameAs(new object());
+obj.Should().Not.Be.OfType<string>();
+obj.Should().Not.Equal("foo");
 
-        obj = new object();
-  	 	obj.Should().Be.OfType(typeof(object));
-    	obj.Should().Equal(obj);
-	    obj.Should().Not.Be.Null();
-	    obj.Should().Not.Be.SameAs(new object());
-	    obj.Should().Not.Be.OfType<string>();
-	    obj.Should().Not.Equal("foo");
-	
-	    obj = "x";
-	    obj.Should().Not.Be.InRange("y", "z");
-	    obj.Should().Be.InRange("a", "z");
-	    obj.Should().Be.SameAs("x");
-	
-	    "This String".Should().Contain("This");
-	    "This String".Should().Not.Be.Empty();
-	    "This String".Should().Not.Contain("foobar");
-	
-	    false.Should().Be.False();
-	    true.Should().Be.True();
-	
-	    var list = new List<object>();
-	    list.Should().Count.Zero();
-	    list.Should().Not.Contain.Item(new object());
-	
-	    var item = new object();
-	    list.Add(item);
-	    list.Should().Not.Be.Empty();
-	    list.Should().Contain.Item(item);
-	};
+obj = "x";
+obj.Should().Not.Be.InRange("y", "z");
+obj.Should().Be.InRange("a", "z");
+obj.Should().Be.SameAs("x");
 
-Here are some additional examples of assertions using the fluent API:
+"This String".Should().Contain("This");
+"This String".Should().Not.Be.Empty();
+"This String".Should().Not.Contain("foobar");
 
-	public void Should_fluent_assertions()
-	{
-	    var numbers = new List<int> { 1, 1, 2, 3 };
-	    numbers.Should().Contain.Any(x => x == 1);
-	    numbers
-	        .Should().Count.AtLeast(1)
-	        .Should().Count.NoMoreThan(5)
-	        .Should().Count.Exactly(4)
-	        .Should().Contain.One(x => x > 2);
-	
-	    var id = new Guid();
-	    id.Should().Be.Empty();
-	
-	    id = Guid.NewGuid();
-	    id.Should().Not.Be.Empty();
-	
-	    var date = DateTime.Now;
-	    date1.Should().Be.Today();
-	
-	    var str = "";
-	    str.Should().Be.NullOrEmpty();                
-	
-	    var one = "1";
-	    one.Should().Be.ConvertableTo<int>();
-	
-	    var idString = Guid.NewGuid().ToString();
-	    idString.Should().Be.ConvertableTo<Guid>();
-	}
+false.Should().Be.False();
+true.Should().Be.True();
+
+var list = new List<object>();
+list.Should().Count.Zero();
+list.Should().Not.Contain.Item(new object());
+
+var item = new object();
+list.Add(item);
+list.Should().Not.Be.Empty();
+list.Should().Contain.Item(item);
+```
+
+Additional fluent examples:
+
+```csharp
+var numbers = new List<int> { 1, 1, 2, 3 };
+numbers.Should().Contain.Any(x => x == 1);
+numbers
+    .Should().Count.AtLeast(1)
+    .Should().Count.NoMoreThan(5)
+    .Should().Count.Exactly(4)
+    .Should().Contain.One(x => x > 2);
+
+var id = new Guid();
+id.Should().Be.Empty();
+
+id = Guid.NewGuid();
+id.Should().Not.Be.Empty();
+
+var date = DateTime.Now;
+date.Should().Be.Today();
+
+var str = "";
+str.Should().Be.NullOrEmpty();
+
+var one = "1";
+one.Should().Be.ConvertableTo<int>();
+
+var idString = Guid.NewGuid().ToString();
+idString.Should().Be.ConvertableTo<Guid>();
+```
+
+---
+
+### Dependencies
+
+The shipped packages have **no runtime dependencies**. `Should.Fluent` depends only on `Should.Core` (also part of this repo).
+
+---
+
+### Building and releasing
+
+```
+dotnet build src/Should.sln
+dotnet test src/Should.sln
+```
+
+CI runs on every push. A NuGet release is published automatically when a `v*` tag is pushed:
+
+```
+git tag v2.0.1
+git push origin v2.0.1
+```
+
+This requires a `NUGET_API_KEY` secret in the GitHub repo settings (Settings → Secrets → Actions).

@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFrameworks>net9.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>Should.Core</AssemblyName>
     <RootNamespace>Should.Core</RootNamespace>
     <IsPackable>true</IsPackable>
