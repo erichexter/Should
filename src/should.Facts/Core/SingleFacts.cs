@@ -13,7 +13,7 @@ namespace Should.Facts.Core
             [Fact]
             public void SingleWithNullCollectionThrows()
             {
-                Assert.Throws<ArgumentNullException>(() => Assert.Single(null));
+                Assert.Throws<ArgumentNullException>((Assert.ThrowsDelegateWithReturn)(() => Assert.Single(null)!));
             }
 
             [Fact]
@@ -64,7 +64,7 @@ namespace Should.Facts.Core
             [Fact]
             public void SingleWithNullCollectionThrows()
             {
-                Assert.Throws<ArgumentNullException>(() => Assert.Single<object>(null));
+                Assert.Throws<ArgumentNullException>((Assert.ThrowsDelegateWithReturn)(() => Assert.Single<object>(null)!));
             }
 
             [Fact]

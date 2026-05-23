@@ -9,19 +9,19 @@ namespace Should.Fluent.Model
 
         public IEnumerable<KeyValuePair<TKey, TValue>> ContainKey(TKey key)
         {
-            var match = target.Where(x => x.Key.Equals(key));
+            var match = target.Where(x => x.Key!.Equals(key));
             if (negate)
             {
                 if (match.Any())
                 {
-                    assertProvider.Fail("Expected dictionary not to contain key '{0}' but it does.", key);
+                    assertProvider.Fail("Expected dictionary not to contain key '{0}' but it does.", (object?)key);
                 }
             }
             else
             {
                 if (!match.Any())
                 {
-                    assertProvider.Fail("Expected dictionary to contain key '{0}' but it does not.", key);
+                    assertProvider.Fail("Expected dictionary to contain key '{0}' but it does not.", (object?)key);
                 }
             }
             return target;

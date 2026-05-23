@@ -6,7 +6,7 @@ namespace Should.Core.Assertions
 {
     internal class AssertEqualityComparer<T> : IEqualityComparer<T>
     {
-        public bool Equals(T x, T y)
+        public bool Equals(T? x, T? y)
         {
             Type type = typeof(T);
 
@@ -21,7 +21,7 @@ namespace Should.Core.Assertions
             }
 
             //x implements IEquitable<T> and is assignable from y?
-            var xIsAssignableFromY = x.GetType().IsAssignableFrom(y.GetType());
+            var xIsAssignableFromY = x!.GetType().IsAssignableFrom(y!.GetType());
             if (xIsAssignableFromY && x is IEquatable<T>)
                 return ((IEquatable<T>)x).Equals(y);
 

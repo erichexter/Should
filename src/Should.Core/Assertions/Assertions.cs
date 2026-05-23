@@ -152,7 +152,7 @@ namespace Should.Core.Assertions
         }
 
         /// <summary>Do not call this method. Call Assert.Equal() instead.</summary>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             throw new NotImplementedException();
         }

@@ -28,7 +28,7 @@ namespace Should.Fluent.Model
 
         public TBe Be
         {
-            get { return (TBe)Activator.CreateInstance(typeof(TBe), this); }
+            get { return (TBe)Activator.CreateInstance(typeof(TBe), this)!; }
         }
 
         public TTarget Equal(TTarget expected)
@@ -51,10 +51,10 @@ namespace Should.Fluent.Model
             return target;
         }
 
-        object IShould<TTarget>.Apply(Func<TTarget, IAssertProvider, object> positiveCase, Func<TTarget, IAssertProvider, object> negativeCase)
+        object? IShould<TTarget>.Apply(Func<TTarget, IAssertProvider, object?> positiveCase, Func<TTarget, IAssertProvider, object?> negativeCase)
         {
-            return negate 
-                ? negativeCase(target, assertProvider) 
+            return negate
+                ? negativeCase(target, assertProvider)
                 : positiveCase(target, assertProvider);
         }
 

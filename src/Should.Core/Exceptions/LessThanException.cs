@@ -6,14 +6,14 @@
         /// <summary>Initializes a new instance of the <see cref="LessThanException"/> class.</summary>
         /// <param name="left">The value being tested.</param>
         /// <param name="right">The exclusive maximum allowed value.</param>
-        public LessThanException(object left, object right) 
+        public LessThanException(object? left, object? right)
             : base(right, left, "LessThan", "<")
         { }
 
         /// <summary>Initializes a new instance of the <see cref="LessThanException"/> class.</summary>
         /// <param name="left">The value being tested.</param>
         /// <param name="right">The exclusive maximum allowed value.</param>
-        public LessThanException(object left, object right, string message)
+        public LessThanException(object? left, object? right, string message)
             : base(left, right, message)
         { }
     }

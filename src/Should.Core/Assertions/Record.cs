@@ -12,7 +12,7 @@ namespace Should.Core.Assertions
         /// </summary>
         /// <param name="code">The code which may thrown an exception.</param>
         /// <returns>Returns the exception that was thrown by the code; null, otherwise.</returns>
-        public static Exception Exception(Assert.ThrowsDelegate code)
+        public static Exception? Exception(Assert.ThrowsDelegate code)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Should.Core.Assertions
         /// </summary>
         /// <param name="code">The code which may thrown an exception.</param>
         /// <returns>Returns the exception that was thrown by the code; null, otherwise.</returns>
-        public static Exception Exception(Assert.ThrowsDelegateWithReturn code)
+        public static Exception? Exception(Assert.ThrowsDelegateWithReturn code)
         {
             try
             {

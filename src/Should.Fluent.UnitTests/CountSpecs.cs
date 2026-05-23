@@ -378,7 +378,7 @@ namespace Should.Fluent.UnitTests
 
         public IEnumerator GetEnumerator()
         {
-            return null;
+            return null!;
         }
 
         public void CopyTo(Array array, int index)
@@ -392,7 +392,7 @@ namespace Should.Fluent.UnitTests
 
         public object SyncRoot
         {
-            get { return null; }
+            get { return null!; }
         }
 
         public bool IsSynchronized

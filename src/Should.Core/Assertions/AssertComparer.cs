@@ -5,7 +5,7 @@ namespace Should.Core.Assertions
 {
     internal class AssertComparer<T> : IComparer<T>
     {
-        public int Compare(T x, T y)
+        public int Compare(T? x, T? y)
         {
             Type type = typeof(T);
 
@@ -21,7 +21,7 @@ namespace Should.Core.Assertions
                     return 1;
             }
 
-            var xIsAssignableFromY = x.GetType().IsAssignableFrom(y.GetType());
+            var xIsAssignableFromY = x!.GetType().IsAssignableFrom(y!.GetType());
             var yIsAssignableFromX = y.GetType().IsAssignableFrom(x.GetType());
 
             if (!xIsAssignableFromY && !yIsAssignableFromX)
@@ -84,16 +84,16 @@ namespace Should.Core.Assertions
             if (greaterThan != null)
             {
                 var lessThan = type.GetMethod("op_LessThan");
-                return (bool)greaterThan.Invoke(null, new object[] { x, y })
+                return (bool)greaterThan.Invoke(null, new object?[] { x, y })!
                     ? 1
-                    : (bool)lessThan.Invoke(null, new object[] { x, y }) ? -1 : 0;
+                    : (bool)lessThan!.Invoke(null, new object?[] { x, y })! ? -1 : 0;
             }
             var greaterThanOrEqual = type.GetMethod("op_GreaterThanOrEqual");
             if (greaterThanOrEqual != null)
             {
                 var lessThanOrEqual = type.GetMethod("op_LessThanOrEqual");
-                return (bool)greaterThanOrEqual.Invoke(null, new object[] { x, y })
-                    ? (bool)lessThanOrEqual.Invoke(null, new object[] { x, y }) ? 0 : 1
+                return (bool)greaterThanOrEqual.Invoke(null, new object?[] { x, y })!
+                    ? (bool)lessThanOrEqual!.Invoke(null, new object?[] { x, y })! ? 0 : 1
                     : -1;
             }
             return null;

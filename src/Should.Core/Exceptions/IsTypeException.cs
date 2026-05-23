@@ -13,7 +13,7 @@ namespace Should.Core.Exceptions
         /// <param name="expected">The expected type</param>
         /// <param name="actual">The actual object value</param>
         public IsTypeException(Type expected,
-                               object actual)
+                               object? actual)
             : base(expected, actual == null ? null : actual.GetType(), "Assert.IsType() Failure") { }
     }
 }

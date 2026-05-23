@@ -7,7 +7,7 @@ namespace Should.Core.Exceptions
     /// </summary>
     public class DoesNotThrowException : AssertActualExpectedException
     {
-        readonly string stackTrace;
+        readonly string? stackTrace;
 
         /// <summary>
         /// Creates a new instance of the <see cref="DoesNotThrowException"/> class.
@@ -26,7 +26,7 @@ namespace Should.Core.Exceptions
         /// Gets a string representation of the frames on the call stack at the time the current exception was thrown.
         /// </summary>
         /// <returns>A string that describes the contents of the call stack, with the most recent method call appearing first.</returns>
-        public override string StackTrace
+        public override string? StackTrace
         {
             get { return FilterStackTrace(stackTrace ?? base.StackTrace); }
         }

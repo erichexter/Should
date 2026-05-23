@@ -28,12 +28,12 @@ namespace Should.Fluent
 
         public static T ConvertableTo<T>(this IBe<string> be)
         {
-            Func<string, IAssertProvider, object> positiveCase = (t, a) =>
+            Func<string, IAssertProvider, object?> positiveCase = (t, a) =>
             {
                 try
                 {
                     var converter = TypeDescriptor.GetConverter(typeof(T));
-                    return (T)converter.ConvertFrom(t);
+                    return (T)converter.ConvertFrom(t)!;
                 }
                 catch (Exception ex)
                 {
@@ -41,7 +41,7 @@ namespace Should.Fluent
                 }
                 return default(T);
             };
-            Func<string, IAssertProvider, object> negativeCase = (t, a) =>
+            Func<string, IAssertProvider, object?> negativeCase = (t, a) =>
             {
                 try
                 {
@@ -51,7 +51,7 @@ namespace Should.Fluent
                 catch { }
                 return default(T);
             };
-            return (T)be.Should.Apply(positiveCase, negativeCase);
+            return (T)be.Should.Apply(positiveCase, negativeCase)!;
         }
 
         public static string GreaterThan(this IBe<string> be, string value)

@@ -10,9 +10,9 @@ namespace Should.Core.Exceptions
     /// </summary>
     public class AssertActualExpectedException : AssertException
     {
-        readonly string actual;
+        readonly string? actual;
         readonly string differencePosition = "";
-        readonly string expected;
+        readonly string? expected;
 
         /// <summary>
         /// Creates a new instance of the <see href="AssertActualExpectedException"/> class.
@@ -20,8 +20,8 @@ namespace Should.Core.Exceptions
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
         /// <param name="userMessage">The user message to be shown</param>
-        public AssertActualExpectedException(object expected,
-                                             object actual,
+        public AssertActualExpectedException(object? expected,
+                                             object? actual,
                                              string userMessage)
             : this(expected, actual, userMessage, false) { }
 
@@ -32,8 +32,8 @@ namespace Should.Core.Exceptions
         /// <param name="actual">The actual value</param>
         /// <param name="userMessage">The user message to be shown</param>
         /// <param name="skipPositionCheck">Set to true to skip the check for difference position</param>
-        public AssertActualExpectedException(object expected,
-                                             object actual,
+        public AssertActualExpectedException(object? expected,
+                                             object? actual,
                                              string userMessage,
                                              bool skipPositionCheck)
             : base(userMessage)
@@ -68,7 +68,7 @@ namespace Should.Core.Exceptions
         /// <summary>
         /// Gets the actual value.
         /// </summary>
-        public string Actual
+        public string? Actual
         {
             get { return actual; }
         }
@@ -76,7 +76,7 @@ namespace Should.Core.Exceptions
         /// <summary>
         /// Gets the expected value.
         /// </summary>
-        public string Expected
+        public string? Expected
         {
             get { return expected; }
         }
@@ -99,7 +99,7 @@ namespace Should.Core.Exceptions
             }
         }
 
-        static string ConvertToString(object value)
+        static string? ConvertToString(object value)
         {
             Array valueArray = value as Array;
             if (valueArray == null)
@@ -108,7 +108,7 @@ namespace Should.Core.Exceptions
             List<string> valueStrings = new List<string>();
 
             foreach (object valueObject in valueArray)
-                valueStrings.Add(valueObject == null ? "(null)" : valueObject.ToString());
+                valueStrings.Add(valueObject == null ? "(null)" : valueObject.ToString()!);
 
             return value.GetType().FullName + " { " + String.Join(", ", valueStrings.ToArray()) + " }";
         }

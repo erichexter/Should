@@ -5,9 +5,9 @@ namespace Should.Core.Exceptions
     /// </summary>
     public class NotInRangeException : AssertException
     {
-        readonly string actual;
-        readonly string high;
-        readonly string low;
+        readonly string? actual;
+        readonly string? high;
+        readonly string? low;
 
         /// <summary>
         /// Creates a new instance of the <see cref="NotInRangeException"/> class.
@@ -15,9 +15,9 @@ namespace Should.Core.Exceptions
         /// <param name="actual">The actual object value</param>
         /// <param name="low">The low value of the range</param>
         /// <param name="high">The high value of the range</param>
-        public NotInRangeException(object actual,
-                                   object low,
-                                   object high)
+        public NotInRangeException(object? actual,
+                                   object? low,
+                                   object? high)
             : base("Assert.NotInRange() Failure")
         {
             this.low = low == null ? null : low.ToString();
@@ -28,7 +28,7 @@ namespace Should.Core.Exceptions
         /// <summary>
         /// Gets the actual object value
         /// </summary>
-        public string Actual
+        public string? Actual
         {
             get { return actual; }
         }
@@ -36,7 +36,7 @@ namespace Should.Core.Exceptions
         /// <summary>
         /// Gets the high value of the range
         /// </summary>
-        public string High
+        public string? High
         {
             get { return high; }
         }
@@ -44,7 +44,7 @@ namespace Should.Core.Exceptions
         /// <summary>
         /// Gets the low value of the range
         /// </summary>
-        public string Low
+        public string? Low
         {
             get { return low; }
         }

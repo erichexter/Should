@@ -11,7 +11,7 @@ namespace Should.Core.Exceptions
     {
         public static string FilterStackTraceAssemblyPrefix = "Should.";
 
-        readonly string stackTrace;
+        readonly string? stackTrace;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AssertException"/> class.
@@ -51,7 +51,7 @@ namespace Should.Core.Exceptions
         /// Gets a string representation of the frames on the call stack at the time the current exception was thrown.
         /// </summary>
         /// <returns>A string that describes the contents of the call stack, with the most recent method call appearing first.</returns>
-        public override string StackTrace
+        public override string? StackTrace
         {
             get { return FilterStackTrace(stackTrace ?? base.StackTrace); }
         }
@@ -59,14 +59,14 @@ namespace Should.Core.Exceptions
         /// <summary>
         /// Gets the user message
         /// </summary>
-        public string UserMessage { get; protected set; }
+        public string? UserMessage { get; protected set; }
 
         /// <summary>
         /// Filters the stack trace to remove all lines that occur within the testing framework.
         /// </summary>
         /// <param name="stackTrace">The original stack trace</param>
         /// <returns>The filtered stack trace</returns>
-        protected static string FilterStackTrace(string stackTrace)
+        protected static string? FilterStackTrace(string? stackTrace)
         {
             if (stackTrace == null)
                 return null;

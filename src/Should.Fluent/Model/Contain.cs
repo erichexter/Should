@@ -55,7 +55,7 @@ namespace Should.Fluent.Model
 
         public IEnumerable<T> One(T value)
         {
-            return One(x => x.Equals(value));
+            return One(x => x!.Equals(value));
         }
 
         public IEnumerable<T> Item(T item)

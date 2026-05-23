@@ -243,7 +243,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_call_areequal()
         {
-            Called(x => x.IsTrue(target.Value));
+            Called(x => x.IsTrue(target!.Value));
         }
 
         [Test]
@@ -342,7 +342,7 @@ namespace Should.Fluent.UnitTests
         public void result_is_actual_converted()
         {
             var converter = TypeDescriptor.GetConverter(typeof(Guid));
-            var expected = (Guid)converter.ConvertFrom(actual);
+            var expected = (Guid)converter.ConvertFrom(actual)!;
             Assert.AreEqual(result, expected);
         }
 

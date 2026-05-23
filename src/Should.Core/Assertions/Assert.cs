@@ -470,10 +470,10 @@ namespace Should.Core.Assertions
         /// <param name="object">The object to be evaluated</param>
         /// <returns>The object, casted to type T when successful</returns>
         /// <exception cref="IsAssignableFromException">Thrown when the object is not the given type</exception>
-        public static T IsAssignableFrom<T>(object @object)
+        public static T IsAssignableFrom<T>(object? @object)
         {
             IsAssignableFrom(typeof(T), @object);
-            return (T)@object;
+            return (T)@object!;
         }
 
         /// <summary>
@@ -482,7 +482,7 @@ namespace Should.Core.Assertions
         /// <param name="expectedType">The type the object should be</param>
         /// <param name="object">The object to be evaluated</param>
         /// <exception cref="IsAssignableFromException">Thrown when the object is not the given type</exception>
-        public static void IsAssignableFrom(Type expectedType, object @object)
+        public static void IsAssignableFrom(Type expectedType, object? @object)
         {
             if (@object == null || !expectedType.IsAssignableFrom(@object.GetType()))
                 throw new IsAssignableFromException(expectedType, @object);
@@ -496,10 +496,10 @@ namespace Should.Core.Assertions
         /// <param name="userMessage">The user message to show on failure</param>
         /// <returns>The object, casted to type T when successful</returns>
         /// <exception cref="IsAssignableFromException">Thrown when the object is not the given type</exception>
-        public static T IsAssignableFrom<T>(object @object, string userMessage)
+        public static T IsAssignableFrom<T>(object? @object, string userMessage)
         {
             IsAssignableFrom(typeof(T), @object, userMessage);
-            return (T)@object;
+            return (T)@object!;
         }
 
         /// <summary>
@@ -509,7 +509,7 @@ namespace Should.Core.Assertions
         /// <param name="userMessage">The user message to show on failure</param>
         /// <param name="object">The object to be evaluated</param>
         /// <exception cref="IsAssignableFromException">Thrown when the object is not the given type</exception>
-        public static void IsAssignableFrom(Type expectedType, object @object, string userMessage)
+        public static void IsAssignableFrom(Type expectedType, object? @object, string userMessage)
         {
             if (@object == null || !expectedType.IsAssignableFrom(@object.GetType()))
                 throw new IsAssignableFromException(expectedType, @object, userMessage);
@@ -521,7 +521,7 @@ namespace Should.Core.Assertions
         /// <typeparam name="T">The type the object should not be</typeparam>
         /// <param name="object">The object to be evaluated</param>
         /// <exception cref="IsNotTypeException">Thrown when the object is the given type</exception>
-        public static void IsNotType<T>(object @object)
+        public static void IsNotType<T>(object? @object)
         {
             IsNotType(typeof(T), @object);
         }
@@ -533,7 +533,7 @@ namespace Should.Core.Assertions
         /// <param name="object">The object to be evaluated</param>
         /// <exception cref="IsNotTypeException">Thrown when the object is the given type</exception>
         public static void IsNotType(Type expectedType,
-                                     object @object)
+                                     object? @object)
         {
             if (@object != null && expectedType.Equals(@object.GetType()))
                 throw new IsNotTypeException(expectedType, @object);
@@ -546,10 +546,10 @@ namespace Should.Core.Assertions
         /// <param name="object">The object to be evaluated</param>
         /// <returns>The object, casted to type T when successful</returns>
         /// <exception cref="IsTypeException">Thrown when the object is not the given type</exception>
-        public static T IsType<T>(object @object)
+        public static T IsType<T>(object? @object)
         {
             IsType(typeof(T), @object);
-            return (T)@object;
+            return (T)@object!;
         }
 
         /// <summary>
@@ -559,7 +559,7 @@ namespace Should.Core.Assertions
         /// <param name="object">The object to be evaluated</param>
         /// <exception cref="IsTypeException">Thrown when the object is not the given type</exception>
         public static void IsType(Type expectedType,
-                                  object @object)
+                                  object? @object)
         {
             if (@object == null || !expectedType.Equals(@object.GetType()))
                 throw new IsTypeException(expectedType, @object);
@@ -690,7 +690,7 @@ namespace Should.Core.Assertions
         /// </summary>
         /// <param name="object">The object to be validated</param>
         /// <exception cref="NotNullException">Thrown when the object is not null</exception>
-        public static void NotNull(object @object)
+        public static void NotNull(object? @object)
         {
             if (@object == null)
                 throw new NotNullException();
@@ -701,7 +701,7 @@ namespace Should.Core.Assertions
         /// </summary>
         /// <param name="object">The object to be validated</param>
         /// <exception cref="NotNullException">Thrown when the object is not null</exception>
-        public static void NotNull(object @object, string message)
+        public static void NotNull(object? @object, string message)
         {
             if (@object == null)
                 throw new NotNullException(message);
@@ -713,8 +713,8 @@ namespace Should.Core.Assertions
         /// <param name="expected">The expected object instance</param>
         /// <param name="actual">The actual object instance</param>
         /// <exception cref="NotSameException">Thrown when the objects are the same instance</exception>
-        public static void NotSame(object expected,
-                                   object actual)
+        public static void NotSame(object? expected,
+                                   object? actual)
         {
             if (object.ReferenceEquals(expected, actual))
                 throw new NotSameException();
@@ -725,7 +725,7 @@ namespace Should.Core.Assertions
         /// </summary>
         /// <param name="object">The object to be inspected</param>
         /// <exception cref="NullException">Thrown when the object reference is not null</exception>
-        public static void Null(object @object)
+        public static void Null(object? @object)
         {
             if (@object != null)
                 throw new NullException(@object);
@@ -737,8 +737,8 @@ namespace Should.Core.Assertions
         /// <param name="expected">The expected object instance</param>
         /// <param name="actual">The actual object instance</param>
         /// <exception cref="SameException">Thrown when the objects are not the same instance</exception>
-        public static void Same(object expected,
-                                object actual)
+        public static void Same(object? expected,
+                                object? actual)
         {
             if (!object.ReferenceEquals(expected, actual))
                 throw new SameException(expected, actual);
@@ -752,13 +752,13 @@ namespace Should.Core.Assertions
         /// <returns>The single item in the collection.</returns>
         /// <exception cref="SingleException">Thrown when the collection does not contain
         /// exactly one element.</exception>
-        public static object Single(IEnumerable collection)
+        public static object? Single(IEnumerable collection)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
             int count = 0;
-            object result = null;
+            object? result = null;
 
             foreach (object item in collection)
             {
@@ -781,13 +781,13 @@ namespace Should.Core.Assertions
         /// <returns>The single item in the collection.</returns>
         /// <exception cref="SingleException">Thrown when the collection does not contain
         /// exactly one element.</exception>
-        public static T Single<T>(IEnumerable<T> collection)
+        public static T? Single<T>(IEnumerable<T> collection)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
             int count = 0;
-            T result = default(T);
+            T? result = default(T);
 
             foreach (T item in collection)
             {

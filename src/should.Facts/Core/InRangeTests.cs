@@ -156,9 +156,9 @@ namespace Should.Facts.Core
                     Value = value;
                 }
 
-                public int CompareTo(object obj)
+                public int CompareTo(object? obj)
                 {
-                    return Value.CompareTo(((ComparableObject) obj).Value);
+                    return Value.CompareTo(((ComparableObject) obj!).Value);
                 }
             }
 
@@ -176,9 +176,9 @@ namespace Should.Facts.Core
                     Value = value;
                 }
 
-                public int CompareTo(GenericComparableObject other)
+                public int CompareTo(GenericComparableObject? other)
                 {
-                    return Value.CompareTo(other.Value);
+                    return Value.CompareTo(other!.Value);
                 }
             }
 

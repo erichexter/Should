@@ -62,14 +62,14 @@ namespace Should.Fluent.Model
                 try
                 {
                     var converter = TypeDescriptor.GetConverter(typeof(T));
-                    return (T)converter.ConvertFrom(should.Target);
+                    return (T)converter.ConvertFrom(should.Target)!;
                 }
                 catch (Exception ex)
                 {
                     assertProvider.Fail("Could not convert '{0}' to {1}.  {3}", should.Target, typeof(T), ex.ToString());
                 }
             }
-            return default(T);
+            return default!;
         }
     }
 }

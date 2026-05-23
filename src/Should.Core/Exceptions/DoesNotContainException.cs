@@ -9,7 +9,7 @@ namespace Should.Core.Exceptions
         /// Creates a new instance of the <see cref="DoesNotContainException"/> class.
         /// </summary>
         /// <param name="expected">The expected object value</param>
-        public DoesNotContainException(object expected)
+        public DoesNotContainException(object? expected)
             : base(string.Format("Assert.DoesNotContain() failure: Found: {0}", expected)) { }
     }
 }

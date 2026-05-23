@@ -10,14 +10,14 @@ namespace Should.Facts
         [Fact]
         public void ShouldNotBeNull_accepts_a_message_to_describe_failure()
         {
-            String s = null;
+            String s = null!;
 
             var ex = Assert.Throws<NotNullException>(() =>
             {
                 s.ShouldNotBeNull("custom failure message");
             });
 
-            Assert.Equal(ex.Message, "custom failure message");
+            Assert.Equal("custom failure message", ex.Message);
         }
 
         [Fact]

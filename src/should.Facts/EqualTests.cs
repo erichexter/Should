@@ -147,9 +147,9 @@ namespace Should.Facts.Core
         public class EquatableObject : IEquatable<EquatableObject>
         {
             public bool Equals__Called;
-            public EquatableObject Equals_Other;
+            public EquatableObject? Equals_Other;
 
-            public bool Equals(EquatableObject other)
+            public bool Equals(EquatableObject? other)
             {
                 Equals__Called = true;
                 Equals_Other = other;
@@ -617,9 +617,9 @@ namespace Should.Facts.Core
         class CustomEqualityObject
         {
             public bool EqualsCalled;
-            public object EqualsCalledOn;
+            public object? EqualsCalledOn;
 
-            public override bool Equals(object obj)
+            public override bool Equals(object? obj)
             {
                 EqualsCalled = true;
                 EqualsCalledOn = obj;

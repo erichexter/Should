@@ -106,7 +106,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_call_areequal()
         {
-            Called(x => x.AreEqual(DateTime.Today, target.Value.Date));
+            Called(x => x.AreEqual(DateTime.Today, target!.Value.Date));
         }
     }
 
@@ -135,7 +135,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_call_arenotequal()
         {
-            Called(x => x.AreNotEqual(DateTime.Today, target.Value.Date));
+            Called(x => x.AreNotEqual(DateTime.Today, target!.Value.Date));
         }
     }
 

@@ -7,7 +7,7 @@ namespace Should.Core.Exceptions
     /// </summary>
     public class ThrowsException : AssertActualExpectedException
     {
-        readonly string stackTrace = null;
+        readonly string? stackTrace = null;
 
         /// <summary>
         /// Creates a new instance of the <see cref="ThrowsException"/> class. Call this constructor
@@ -25,12 +25,12 @@ namespace Should.Core.Exceptions
         /// <param name="actual">The actual exception that was thrown</param>
         public ThrowsException(Type expectedType,
                                Exception actual)
-            : this(expectedType, actual.GetType().FullName, actual.Message, actual.StackTrace) { }
+            : this(expectedType, actual.GetType().FullName!, actual.Message, actual.StackTrace) { }
 
         ThrowsException(Type expected,
                         string actual,
-                        string actualMessage,
-                        string stackTrace)
+                        string? actualMessage,
+                        string? stackTrace)
             : base(expected,
                    actual + (actualMessage == null ? "" : ": " + actualMessage),
                    "Assert.Throws() Failure")
@@ -42,7 +42,7 @@ namespace Should.Core.Exceptions
         /// Gets a string representation of the frames on the call stack at the time the current exception was thrown.
         /// </summary>
         /// <returns>A string that describes the contents of the call stack, with the most recent method call appearing first.</returns>
-        public override string StackTrace
+        public override string? StackTrace
         {
             get { return FilterStackTrace(stackTrace ?? base.StackTrace); }
         }

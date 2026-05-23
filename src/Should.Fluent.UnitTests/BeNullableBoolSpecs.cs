@@ -99,7 +99,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_assert_istrue()
         {
-            Called(x => x.IsTrue(target.Value));
+            Called(x => x.IsTrue(target!.Value));
         }
     }
 
@@ -122,7 +122,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_assert_isfalse()
         {
-            Called(x => x.IsFalse(target.Value));
+            Called(x => x.IsFalse(target!.Value));
         }
     }
 
@@ -145,7 +145,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_assert_isfalse()
         {
-            Called(x => x.IsFalse(target.Value));
+            Called(x => x.IsFalse(target!.Value));
         }
 
         [Test]
@@ -174,7 +174,7 @@ namespace Should.Fluent.UnitTests
         [Test]
         public void should_assert_istrue()
         {
-            Called(x => x.IsTrue(target.Value));
+            Called(x => x.IsTrue(target!.Value));
         }
 
         [Test]

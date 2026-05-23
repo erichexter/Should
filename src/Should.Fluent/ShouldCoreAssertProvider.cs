@@ -8,12 +8,12 @@ namespace Should.Fluent
 {
     public class ShouldCoreAssertProvider : IAssertProvider
     {
-        public void AreEqual(object expected, object actual)
+        public void AreEqual(object? expected, object? actual)
         {
             Assert.Equal(expected, actual);
         }
 
-        public void AreNotEqual(object expected, object actual)
+        public void AreNotEqual(object? expected, object? actual)
         {
             Assert.NotEqual(expected, actual);
         }
@@ -98,12 +98,12 @@ namespace Should.Fluent
             Assert.LessThanOrEqual(left, right, comparer);
         }
 
-        public void IsNotNull(object value)
+        public void IsNotNull(object? value)
         {
             Assert.NotNull(value);
         }
 
-        public void IsNull(object value)
+        public void IsNull(object? value)
         {
             Assert.Null(value);
         }
@@ -118,9 +118,9 @@ namespace Should.Fluent
             Assert.True(value);
         }
 
-        public void Fail(string messageFormat, params object[] args)
+        public void Fail(string messageFormat, params object?[] args)
         {
-            args = args ?? new object[0];
+            args = args ?? new object?[0];
             throw new AssertException(string.Format(messageFormat, args));
         }
 
@@ -144,12 +144,12 @@ namespace Should.Fluent
             throw new NotImplementedException();
         }
 
-        public void AreSame(object expected, object actual)
+        public void AreSame(object? expected, object? actual)
         {
             Assert.Same(expected, actual);
         }
 
-        public void AreNotSame(object expected, object actual)
+        public void AreNotSame(object? expected, object? actual)
         {
             Assert.NotSame(expected, actual);
         }
@@ -159,12 +159,12 @@ namespace Should.Fluent
             Assert.Contains(expectedSubstring, actual);
         }
 
-        public void IsInstanceOfType(object actual, Type expectedType)
+        public void IsInstanceOfType(object? actual, Type expectedType)
         {
             Assert.IsType(expectedType, actual);
         }
 
-        public void IsNotInstanceOfType(object actual, Type expectedType)
+        public void IsNotInstanceOfType(object? actual, Type expectedType)
         {
             Assert.IsNotType(expectedType, actual);
         }
@@ -181,15 +181,15 @@ namespace Should.Fluent
 
         public void AssignableFrom<T>(T target, Type expectedType)
         {
-            Assert.IsAssignableFrom(expectedType, target);
+            Assert.IsAssignableFrom(expectedType, (object?)target);
         }
 
         public void NotAssignableFrom<T>(T target, Type expectedType)
         {
             try
             {
-                Assert.IsAssignableFrom(expectedType, target);
-                throw new AssertException(string.Format("Expected {0} to NOT be assignable from {1}, but it is.", target.GetType(), expectedType));
+                Assert.IsAssignableFrom(expectedType, (object?)target);
+                throw new AssertException(string.Format("Expected {0} to NOT be assignable from {1}, but it is.", target!.GetType(), expectedType));
             }
             catch (IsAssignableFromException) { }
         }

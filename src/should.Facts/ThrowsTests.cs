@@ -61,8 +61,8 @@ namespace Should.Facts.Core
                 }
                 catch (AssertActualExpectedException exception)
                 {
-                    Assert.Contains(GetMethodFullName(throwsDelegate), exception.StackTrace);
-                    Assert.DoesNotContain("Should.Core", exception.StackTrace);
+                    Assert.Contains(GetMethodFullName(throwsDelegate), exception.StackTrace!);
+                    Assert.DoesNotContain("Should.Core", exception.StackTrace!);
                 }
                 finally
                 {
@@ -131,8 +131,8 @@ namespace Should.Facts.Core
                 }
                 catch (AssertActualExpectedException exception)
                 {
-                    Assert.Contains(GetMethodFullName(throwsDelegateWithReturn), exception.StackTrace);
-                    Assert.DoesNotContain("Should.Core", exception.StackTrace);
+                    Assert.Contains(GetMethodFullName(throwsDelegateWithReturn), exception.StackTrace!);
+                    Assert.DoesNotContain("Should.Core", exception.StackTrace!);
                 }
                 finally
                 {
@@ -249,7 +249,7 @@ namespace Should.Facts.Core
         private static string GetMethodFullName(Delegate @delegate)
         {
             var methodInfo = @delegate.Method.GetBaseDefinition();
-            return string.Format("{0}.{1}", methodInfo.ReflectedType.FullName.Replace("+", "."), methodInfo.Name);
+            return string.Format("{0}.{1}", methodInfo.ReflectedType!.FullName!.Replace("+", "."), methodInfo.Name);
         }
     }
 }

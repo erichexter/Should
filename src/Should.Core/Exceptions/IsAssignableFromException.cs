@@ -12,7 +12,7 @@ namespace Should.Core.Exceptions
         /// </summary>
         /// <param name="expected">The expected type</param>
         /// <param name="actual">The actual object value</param>
-        public IsAssignableFromException(Type expected, object actual) : this(expected, actual, "Assert.IsAssignableFrom() Failure") { }
+        public IsAssignableFromException(Type expected, object? actual) : this(expected, actual, "Assert.IsAssignableFrom() Failure") { }
 
         /// <summary>
         /// Creates a new instance of the <see cref="IsTypeException"/> class.
@@ -20,7 +20,7 @@ namespace Should.Core.Exceptions
         /// <param name="expected">The expected type</param>
         /// <param name="actual">The actual object value</param>
         /// <param name="userMessage">A custom message to prepend to the default Assert.IsAssignableFrom() failure message</param>
-        public IsAssignableFromException(Type expected, object actual, string userMessage)
+        public IsAssignableFromException(Type expected, object? actual, string userMessage)
             : base(expected, actual == null ? null : actual.GetType(), userMessage) { }
     }
 }

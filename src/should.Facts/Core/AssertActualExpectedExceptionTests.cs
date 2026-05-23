@@ -97,7 +97,7 @@ namespace Should.Facts.Core
         [Fact]
         public void OneStringOneNullDoesNotShowDifferencePoint()
         {
-            string actualValue = null;
+            string? actualValue = null;
             string expectedValue = "first test 1";
             string expectedMessage =
                 "Message" + Environment.NewLine +

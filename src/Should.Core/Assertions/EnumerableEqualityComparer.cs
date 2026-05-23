@@ -8,10 +8,10 @@ namespace Should.Core.Assertions
     {
         public int Position { get; set; }
 
-        public bool Equals(IEnumerable x, IEnumerable y)
+        public bool Equals(IEnumerable? x, IEnumerable? y)
         {
-            IEnumerator enumeratorX = x.GetEnumerator();
-            IEnumerator enumeratorY = y.GetEnumerator();
+            IEnumerator enumeratorX = x!.GetEnumerator();
+            IEnumerator enumeratorY = y!.GetEnumerator();
 
             Position = 0;
 
@@ -32,7 +32,7 @@ namespace Should.Core.Assertions
                         return false;
 
                     var xType = enumeratorX.Current.GetType();
-                    var yType = enumeratorY.Current.GetType();
+                    var yType = enumeratorY.Current!.GetType();
 
                     if (xType.IsAssignableFrom(yType))
                     {
@@ -63,7 +63,7 @@ namespace Should.Core.Assertions
             var assertComparerType = typeof(AssertEqualityComparer<>).MakeGenericType(baseType);
             var assertComparer = Activator.CreateInstance(assertComparerType);
             var compareMethod = assertComparerType.GetMethod("Equals", new [] { baseType, baseType });
-            return (bool)compareMethod.Invoke(assertComparer, new[] { a, b });
+            return (bool)compareMethod!.Invoke(assertComparer, new[] { a, b })!;
         }
     }
 }
