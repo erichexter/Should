@@ -33,7 +33,7 @@ namespace Should.Facts
                 d.ShouldEqual(2.0, 0, "custom failure message");
             });
 
-            Assert.Equal("custom failure message\r\nExpected: 2 +/- 0\r\nActual:   1", ex.Message);
+            Assert.Equal("custom failure message" + Environment.NewLine + "Expected: 2 +/- 0" + Environment.NewLine + "Actual:   1", ex.Message);
         }
 
         [Fact]
